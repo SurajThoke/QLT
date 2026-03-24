@@ -28,10 +28,10 @@ const About = () => {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/about-hero.mp4" type="video/mp4" />
+            <source src="/about-hero1.mp4" type="video/mp4" />
           </video>
 
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-black/65"></div>
 
         </div>
 
@@ -81,13 +81,6 @@ const About = () => {
                 pharmaceutical and nutraceutical solutions.
               </p>
 
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                Built by experienced leaders with decades of expertise in
-                manufacturing, supply chain, regulatory affairs and global
-                business development, QLT combines strategic partnerships,
-                regulatory excellence and deep market insights.
-              </p>
-
               <div className="grid grid-cols-2 gap-6">
 
                 <div className="flex items-center gap-3">
@@ -113,56 +106,103 @@ const About = () => {
             </motion.div>
 
 
-            {/* STATS */}
-            <div className="grid grid-cols-3 gap-6">
+             {/* Image Stat Cards */}
+    <div className="grid grid-cols-3 gap-6">
 
-              <StatCard number="150" label="Products" suffix="+" />
-              <StatCard number="45" label="Global Markets" />
-              <StatCard number="5" label="R&D Hubs" />
+      <div className="group relative h-44 rounded-3xl overflow-hidden text-white flex items-end p-6">
+        <img src="/products.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative">
+          <h3 className="text-3xl font-bold">150+</h3>
+          <p className="text-sm">Products</p>
+        </div>
+      </div>
 
+      <div className="group relative h-44 rounded-3xl overflow-hidden text-white flex items-end p-6">
+        <img src="/global.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative">
+          <h3 className="text-3xl font-bold">45</h3>
+          <p className="text-sm">Global Markets</p>
+        </div>
+      </div>
+
+      <div className="group relative h-44 rounded-3xl overflow-hidden text-white flex items-end p-6">
+        <img src="/research.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative">
+          <h3 className="text-3xl font-bold">5</h3>
+          <p className="text-sm">R&D Hubs</p>
+        </div>
+      </div>
+      </div>
+
+    </div>
+
+
+        </div>
+
+      </section>
+
+ {/* PURPOSE / VISION / MISSION */}
+<section className="section-padding bg-white">
+  <div className="max-w-7xl mx-auto">
+    <div className="grid md:grid-cols-3 gap-8">
+
+      {[
+        {
+          title: "Purpose",
+          content:
+            "Patients first — delivering trusted healthcare solutions to improve lives across emerging markets.",
+          icon: <Users className="text-accent group-hover:text-white transition-colors duration-500" size={32} />
+        },
+        {
+          title: "Vision",
+          content:
+            "To become a trusted global healthcare partner delivering innovative pharmaceutical and nutraceutical solutions.",
+          icon: <Globe className="text-accent group-hover:text-white transition-colors duration-500" size={32} />
+        },
+        {
+          title: "Mission",
+          content:
+            "To empower health and well-being through end-to-end healthcare solutions and strategic partnerships.",
+          icon: <TrendingUp className="text-accent group-hover:text-white transition-colors duration-500" size={32} />
+        }
+      ].map((item) => (
+
+        <motion.div
+          key={item.title}
+          whileHover={{ y: -10, scale: 1.03 }}
+          className="group relative bg-white p-10 rounded-3xl shadow-lg border border-slate-100 overflow-hidden transition-all duration-500"
+        >
+
+          {/* Animated Background Fill */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
+
+          {/* Content */}
+          <div className="relative z-10 transition-colors duration-500">
+
+            <div className="mb-6">
+              {item.icon}
             </div>
+
+            <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">
+              {item.title}
+            </h3>
+
+            <p className="text-slate-600 leading-relaxed group-hover:text-white/90 transition-colors duration-500">
+              {item.content}
+            </p>
 
           </div>
 
-        </div>
+        </motion.div>
 
-      </section>
+      ))}
 
-
-
-      {/* IMAGE STORY */}
-      <section className="section-padding bg-slate-50">
-
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="rounded-3xl overflow-hidden shadow-lg"
-          >
-            <img src="/lab.jpg" className="w-full h-[320px] object-cover" />
-          </motion.div>
-
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="rounded-3xl overflow-hidden shadow-lg"
-          >
-            <img
-              src="/manufacturing.jpg"
-              className="w-full h-[320px] object-cover"
-            />
-          </motion.div>
-
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="rounded-3xl overflow-hidden shadow-lg"
-          >
-            <img src="/global.jpg" className="w-full h-[320px] object-cover" />
-          </motion.div>
-
-        </div>
-
-      </section>
-
+    </div>
+  </div>
+</section>
 
 
       {/* WHO WE ARE */}
@@ -185,167 +225,6 @@ const About = () => {
         </div>
 
       </section>
-
-
-{/* JOURNEY TIMELINE */}
-<section className="section-padding bg-slate-50 relative overflow-hidden">
-
-{/* background glow */}
-<div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
-<div className="absolute bottom-10 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
-
-<div className="max-w-6xl mx-auto relative">
-
-<SectionHeading
-subtitle="Our Journey"
-title="Building Healthcare Access"
-/>
-
-<div className="mt-24 relative">
-
-{/* timeline line */}
-<div className="absolute left-1/2 top-0 bottom-0 w-[4px] bg-gradient-to-b from-primary via-accent to-primary -translate-x-1/2"></div>
-
-<div className="space-y-24">
-
-{[
-{
-year: "Foundation",
-title: "QL Therapeutics Established",
-desc: "Founded by experienced pharma professionals with decades of global healthcare experience.",
-icon: "🏥"
-},
-{
-year: "Expansion",
-title: "Global Partnerships",
-desc: "Building a network of manufacturers, distributors and regulatory partners.",
-icon: "🌍"
-},
-{
-year: "Innovation",
-title: "Nutraceutical Development",
-desc: "Development of nutraceutical products supporting preventive healthcare.",
-icon: "🧪"
-},
-{
-year: "Growth",
-title: "Launch of Poshan Brand",
-desc: "Launch of Poshan — a plant-based nutrition brand focused on clean wellness.",
-icon: "🌿"
-}
-].map((item, idx) => (
-
-<motion.div
-key={idx}
-initial={{ opacity: 0, y: 60 }}
-whileInView={{ opacity: 1, y: 0 }}
-viewport={{ once: true }}
-transition={{ duration: 0.6, delay: idx * 0.2 }}
-className={`flex items-center ${
-idx % 2 === 0 ? "justify-start" : "justify-end"
-}`}
->
-
-{/* timeline node */}
-<div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
-
-<div className="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center shadow-lg border-4 border-white">
-<span className="text-lg">{item.icon}</span>
-</div>
-
-</div>
-
-{/* timeline card */}
-<motion.div
-whileHover={{ y: -10, scale: 1.03 }}
-className="w-[45%] bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl border border-slate-100 transition-all duration-300"
->
-
-{/* year badge */}
-<div className="inline-block bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full mb-3">
-{item.year}
-</div>
-
-<h3 className="text-xl font-bold text-primary mb-3">
-{item.title}
-</h3>
-
-<p className="text-slate-600 text-sm leading-relaxed">
-{item.desc}
-</p>
-
-</motion.div>
-
-</motion.div>
-
-))}
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-      {/* PURPOSE / VISION / MISSION */}
-      <section className="section-padding bg-white">
-
-        <div className="max-w-7xl mx-auto">
-
-          <div className="grid md:grid-cols-3 gap-8">
-
-            {[
-              {
-                title: "Purpose",
-                content:
-                  "Patients first — delivering trusted healthcare solutions to improve lives across emerging markets.",
-                icon: <Users className="text-accent" size={32} />
-              },
-
-              {
-                title: "Vision",
-                content:
-                  "To become a trusted global healthcare partner delivering innovative pharmaceutical and nutraceutical solutions.",
-                icon: <Globe className="text-accent" size={32} />
-              },
-
-              {
-                title: "Mission",
-                content:
-                  "To empower health and well-being through end-to-end healthcare solutions and strategic partnerships.",
-                icon: <TrendingUp className="text-accent" size={32} />
-              }
-            ].map((item, idx) => (
-
-              <motion.div
-                key={item.title}
-                whileHover={{ y: -10, scale: 1.03 }}
-                className="bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl border border-slate-100 transition-all"
-              >
-
-                <div className="mb-6">{item.icon}</div>
-
-                <h3 className="text-2xl font-bold text-primary mb-4">
-                  {item.title}
-                </h3>
-
-                <p className="text-slate-600 leading-relaxed">
-                  {item.content}
-                </p>
-
-              </motion.div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
 
 
       {/* BUSINESS DIVISIONS */}

@@ -116,7 +116,7 @@ Madhu Swarna
 </h3>
 
 <p className="text-accent font-semibold mb-4">
-Regulatory & Compliance Expert
+Co-Founder and Technical Expert
 </p>
 
 <p className="text-slate-600 text-sm leading-relaxed mb-6">

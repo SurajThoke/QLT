@@ -7,6 +7,12 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const FEATURES = {
+  portfolio: false,
+  global: false,
+  insights: false,
+};
+  
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -15,16 +21,17 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Leadership', href: '/leadership' },
-    { name: 'Capabilities', href: '/capabilities' },
-    { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Global Presence', href: '/global' },
-    { name: 'Insights', href: '/insights' },
-    { name: 'Contact', href: '/contact' },
-  ];
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Leadership', href: '/leadership' },
+  { name: 'Capabilities', href: '/capabilities' },
 
+  FEATURES.portfolio && { name: 'Portfolio', href: '/portfolio' },
+  FEATURES.global && { name: 'Global Presence', href: '/global' },
+  FEATURES.insights && { name: 'Insights', href: '/insights' },
+
+  { name: 'Contact', href: '/contact' },
+].filter(Boolean); // 🔥 IMPORTANT
   const isActive = (path: string) => location.pathname === path;
 
   return (

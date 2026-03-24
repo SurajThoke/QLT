@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion } from "motion/react";
 import {
   Factory,
@@ -12,19 +12,101 @@ import {
 
 import SectionHeading from "../components/SectionHeading";
 
+
+// ✅ Counter Component (OUTSIDE main component)
+const Counter = ({ value, suffix }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.4 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+
+    let start = 0;
+    const end = value;
+    const duration = 1500;
+    const increment = end / (duration / 16);
+
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        start = end;
+        clearInterval(timer);
+      }
+      setCount(Math.floor(start));
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [visible, value]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};
+
+const Typewriter = ({ text, speed = 50, pause = 1500 }) => {
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    let timeout;
+
+    if (!isDeleting && index < text.length) {
+      timeout = setTimeout(() => {
+        setDisplayText((prev) => prev + text[index]);
+        setIndex(index + 1);
+      }, speed);
+    } else if (isDeleting && index > 0) {
+      timeout = setTimeout(() => {
+        setDisplayText((prev) => prev.slice(0, -1));
+        setIndex(index - 1);
+      }, speed / 2);
+    } else if (index === text.length) {
+      timeout = setTimeout(() => setIsDeleting(true), pause);
+    } else if (index === 0 && isDeleting) {
+      timeout = setTimeout(() => setIsDeleting(false), 300);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [index, isDeleting, text, speed, pause]);
+
+  return (
+    <span>
+      {displayText}
+      <span className="animate-pulse">|</span>
+    </span>
+  );
+};
+
+
+// ✅ MAIN COMPONENT
 const Capabilities = () => {
   return (
     <div className="pt-24">
+
+
 
 {/* HERO */}
 <section className="relative section-padding text-white text-center overflow-hidden">
 
 <div className="absolute inset-0">
 <img
-src="/pharma-hero.jpg"
+src="/pharma-hero1.jpg"
 className="w-full h-full object-cover"
 />
-<div className="absolute inset-0 bg-primary/80"></div>
+<div className="absolute inset-0 bg-primary/60"></div>
 </div>
 
 <div className="relative max-w-4xl mx-auto">
@@ -43,86 +125,133 @@ and regulatory expertise.
 
 </section>
 
-
-
 {/* CORE CAPABILITIES */}
-<section className="section-padding bg-white relative overflow-hidden">
+<section className="section-padding relative overflow-hidden bg-white">
 
-<div className="absolute -top-20 -left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
-<div className="absolute bottom-0 right-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
+  {/* 🌈 SOFT BACKGROUND DESIGN */}
+  <div className="absolute -top-20 -left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
 
-<div className="max-w-7xl mx-auto">
+  <div className="relative z-10 max-w-6xl mx-auto">
 
-<div className="mb-16 text-center">
+    {/* HEADING */}
+    <div className="mb-20 text-center">
+      <div className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+        Our Expertise
+      </div>
 
-<div className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-Our Expertise
-</div>
+      <h2 className="text-3xl md:text-4xl font-bold text-primary">
+        Core Capabilities
+      </h2>
+    </div>
 
-<h2 className="text-3xl md:text-4xl font-bold text-primary">
-Core Capabilities
-</h2>
+    {/* 🎯 ZIG-ZAG + IMAGE LAYOUT */}
+    <div className="flex flex-col gap-20">
 
-</div>
+      {[
+        {
+          title:"Nutraceutical Manufacturing",
+          desc:"Production of supplements, vitamins, herbal extracts and functional foods.",
+          icon:<Beaker/>,
+          image:"/nutraceutical.jpg"
+        },
+        {
+          title:"Pharmaceutical Collaborations",
+          desc:"Manufacturing partnerships for tablets, capsules, liquids and topicals.",
+          icon:<Factory/>,
+          image:"/pharma.jpg"
+        },
+        {
+          title:"Marketing & Distribution",
+          desc:"B2B, B2C and D2C distribution across emerging global markets.",
+          icon:<Zap/>,
+          image:"/marketing.jpg"
+        },
+        {
+          title:"Advisory Services",
+          desc:"GMP advisory, dossier sourcing and manufacturing problem solving.",
+          icon:<ShieldCheck/>,
+          image:"/advisory.jpg"
+        }
+      ].map((item, idx) => {
 
-<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        const isRight = idx % 2 !== 0;
 
-{[
-{
-title:"Nutraceutical Manufacturing",
-desc:"Production of supplements, vitamins, herbal extracts and functional foods.",
-icon:<Beaker/>
-},
-{
-title:"Pharmaceutical Collaborations",
-desc:"Manufacturing partnerships for tablets, capsules, liquids and topicals.",
-icon:<Factory/>
-},
-{
-title:"Marketing & Distribution",
-desc:"B2B, B2C and D2C distribution across emerging global markets.",
-icon:<Zap/>
-},
-{
-title:"Advisory Services",
-desc:"GMP advisory, dossier sourcing and manufacturing problem solving.",
-icon:<ShieldCheck/>
-}
-].map((item,idx)=>(
+        return (
+          <div
+            key={idx}
+            className={`flex items-center gap-10 ${
+              isRight ? "flex-row-reverse" : ""
+            }`}
+          >
 
-<motion.div
-key={idx}
-initial={{opacity:0,y:40}}
-whileInView={{opacity:1,y:0}}
-viewport={{once:true}}
-transition={{delay:idx*0.1}}
-whileHover={{y:-10,scale:1.03}}
-className="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 hover:shadow-2xl transition-all"
+            {/* 🟦 CARD */}
+            <motion.div
+              initial={{opacity:0, x:isRight ? 80 : -80}}
+              whileInView={{opacity:1, x:0}}
+              viewport={{once:true}}
+              transition={{duration:0.6}}
+              whileHover={{scale:1.05}}
+              className="w-full md:w-[55%] group relative p-8 rounded-3xl border border-slate-200 bg-white shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+            >
+
+              {/* 🌈 HOVER GRADIENT */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
+
+              {/* CONTENT */}
+              <div className="relative z-10">
+
+                <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-white transition duration-300">
+                  {React.cloneElement(item.icon,{ size:28 })}
+                </div>
+
+                <motion.h3
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4 }}
+  className="text-xl font-bold text-primary mb-4"
 >
+  {item.title}
+</motion.h3>
 
-<div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-6 text-white">
-{React.cloneElement(item.icon,{size:28})}
-</div>
-
-<h3 className="text-xl font-bold text-primary mb-4">
-{item.title}
-</h3>
-
-<p className="text-slate-600 text-sm leading-relaxed">
-{item.desc}
+                <p className="text-slate-600 group-hover:text-slate-700 transition duration-300 text-sm leading-relaxed">
+  <Typewriter text={item.desc} />
 </p>
 
-</motion.div>
+              </div>
 
-))}
+            </motion.div>
 
-</div>
+            {/* 🖼️ IMAGE */}
+            <motion.div
+              initial={{opacity:0, x:isRight ? -80 : 80}}
+              whileInView={{opacity:1, x:0}}
+              viewport={{once:true}}
+              transition={{duration:0.6}}
+              className="hidden md:block w-[35%]"
+            >
+              <div className="relative h-[260px] rounded-3xl overflow-hidden shadow-lg">
 
-</div>
+                <img
+                  src={item.image}
+                  className="w-full h-full object-cover"
+                />
+
+                {/* subtle overlay */}
+                <div className="absolute inset-0 bg-black/10"></div>
+
+              </div>
+            </motion.div>
+
+          </div>
+        );
+      })}
+
+    </div>
+
+  </div>
 
 </section>
-
-
 
 {/* WHAT SETS US APART */}
 <section className="section-padding bg-slate-50">
@@ -131,21 +260,21 @@ className="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 hover:shad
 
 <SectionHeading
 subtitle="Our Edge"
-title="What Sets Us Apart"
+title="What Sets Our Manufacturing Apart"
 centered
 />
 
 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
 
 {[
-"World Class manufacturing facility",
-"Dedicated research and development wing",
-"Cutting edge manufacturing technology",
-"Exclusive personal care manufacturing facility",
-"WHO-GMP certified facility",
-"USFDA registered",
-"Dedicated diskette manufacturing line",
-"300+ formulations"
+"WORLD CLASS MANUFACTURING FACILITY",
+"DEDICATED RESEARCH AND DEVELOPMENT WING",
+"CUTTING EDGE MANUFACTURING TECHNOLOGY",
+"EXCLUSIVE PERSONAL CARE MANUFACTURING FACILITY",
+"WHO-GMP CERTIFIED FACILITY",
+"USFDA REGISTERED",
+"DEDICATED DISKETTE MANUFACTURING LINE",
+"300+ FORMULATIONS"
 ].map((item,idx)=>(
 
 <motion.div
@@ -173,6 +302,29 @@ className="bg-white p-6 rounded-2xl shadow-md flex items-start gap-4"
 </div>
 
 </section>
+
+
+<section className="section-padding bg-slate-50 text-center">
+  <div className="max-w-7xl mx-auto">
+
+    <SectionHeading
+      subtitle="Quality Standards"
+      title="Global Certifications"
+    />
+
+    <div className="flex flex-wrap justify-center items-center gap-10 mt-12">
+      <img src="/who.png" alt="WHO GMP" className="h-30 object-contain" />
+      <img src="/usfda.png" alt="US FDA" className="h-30 object-contain" />
+      <img src="/halal.png" alt="Halal" className="h-30 object-contain" />
+      <img src="/kosher.png" alt="Kosher" className="h-30 object-contain" />
+      <img src="/haccp.png" alt="HACCP" className="h-30 object-contain" />
+      <img src="/iso9001.png" alt="ISO 9001" className="h-30 object-contain" />
+      <img src="/iso22000.png" alt="ISO 22000" className="h-30 object-contain" />
+    </div>
+
+  </div>
+</section>
+
 
 
 
@@ -291,41 +443,53 @@ is traceable to ensure regulatory compliance and consistent quality.
 
 
 {/* PRODUCTION CAPACITY */}
-<section className="section-padding bg-slate-50 relative">
+<section className="section-padding bg-slate-50 relative overflow-hidden">
 
-<div className="max-w-6xl mx-auto">
+{/* glow background */}
+<div className="absolute top-10 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+<div className="absolute bottom-10 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
 
-<div className="bg-primary text-white rounded-3xl shadow-2xl px-10 py-16 text-center">
+<div className="max-w-6xl mx-auto relative">
 
-<SectionHeading
-subtitle="Production Capacity"
-title="Manufacturing at Scale"
-/>
+<div className="bg-primary text-white rounded-3xl shadow-2xl px-10 py-20 text-center">
 
-<div className="grid md:grid-cols-4 gap-10 mt-12">
+<div className="mb-10 text-center">
+  <p className="text-3xl md:text-4xl font-bold uppercase tracking-widest text-accent mb-3">
+    Production Capacity
+  </p>
+
+  <h2 className="text-xl md:text-2xl font-semibold text-white/80">
+    Manufacturing at Scale
+  </h2>
+</div>
+
+<div className="grid md:grid-cols-4 gap-10 mt-14">
 
 {[
-{value:"134M",label:"Tablets / Diskettes per month"},
-{value:"30M",label:"Capsules per month"},
-{value:"12 Tons",label:"Paste / Cream / Gel"},
-{value:"350K",label:"Liquid bottles per month"}
+{value:134, suffix:"M", label:"Tablets / Diskettes per month"},
+{value:30, suffix:"M", label:"Capsules per month"},
+{value:12, suffix:" Tons", label:"Powder"},
+{value:350, suffix:"K", label:"Liquid bottles per month"}
 ].map((item, idx)=>(
 
 <motion.div
 key={idx}
-initial={{opacity:0,y:30}}
-whileInView={{opacity:1,y:0}}
+initial={{opacity:0, y:50, scale:0.9}}
+whileInView={{opacity:1, y:0, scale:1}}
 viewport={{once:true}}
-transition={{delay:idx*0.1}}
-whileHover={{scale:1.05}}
-className="p-6 rounded-2xl bg-white/5 backdrop-blur border border-white/10"
+transition={{duration:0.6, delay:idx*0.2}}
+whileHover={{y:-8, scale:1.07}}
+className="relative p-8 rounded-2xl bg-white/5 backdrop-blur border border-white/10 transition-all duration-300 group"
 >
 
-<h3 className="text-4xl font-bold text-accent mb-2">
-{item.value}
+{/* glow hover */}
+<div className="absolute inset-0 rounded-2xl bg-accent/0 group-hover:bg-accent/10 blur-xl transition-all"></div>
+
+<h3 className="text-5xl font-bold text-accent mb-3">
+<Counter value={item.value} suffix={item.suffix}/>
 </h3>
 
-<p className="text-white/80 text-sm">
+<p className="text-white/80 text-sm leading-relaxed">
 {item.label}
 </p>
 

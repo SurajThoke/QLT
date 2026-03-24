@@ -13,7 +13,7 @@ const Footer = () => {
               <span className="text-2xl font-bold">QL Therapeutics</span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed">
-              Advancing global health through scientific precision and innovative manufacturing solutions.
+              ADVANCING GLOBAL HEALTH THROUGH SCIENTIFIC PRECISION AND INNOVATIVE SOLUTIONS. 
             </p>
           </div>
           
@@ -23,7 +23,6 @@ const Footer = () => {
               <li><Link to="/" className="hover:text-accent transition-colors">Home</Link></li>
               <li><Link to="/about" className="hover:text-accent transition-colors">About Us</Link></li>
               <li><Link to="/capabilities" className="hover:text-accent transition-colors">Capabilities</Link></li>
-              <li><Link to="/portfolio" className="hover:text-accent transition-colors">Portfolio</Link></li>
             </ul>
           </div>
           
@@ -52,9 +51,8 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs">
           <p>© 2026 QL Therapeutics. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-white transition-colors">Twitter</a>
-            <a href="#" className="hover:text-white transition-colors">Instagram</a>
+            <a href="https://www.linkedin.com/company/ql-therapeutics-pvt-ltd/posts/?feedView=all" className="hover:text-white transition-colors">LinkedIn</a>
+            <a href="https://www.instagram.com/qltherapeutics/" className="hover:text-white transition-colors">Instagram</a>
           </div>
         </div>
       </div>
