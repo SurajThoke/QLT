@@ -43,3 +43,7 @@
 .btn-outline {
   @apply border-2 border-primary text-primary px-8 py-3 rounded-full font-semibold transition-all hover:bg-primary hover:text-white hover:scale-105 active:scale-95;
 }
+
+.perspective {
+  perspective: 1000px;
+}

@@ -36,14 +36,14 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-all duration-300 py-2`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
         {/* Logo Only */}
         <Link to="/" className="flex items-center">
           <img
             src="/logo.png"
             alt="QL Therapeutics Logo"
-            className="h-18 md:h-20 w-auto object-contain"
+            className="h-16 md:h-18 w-auto object-contain"
           />
         </Link>
 

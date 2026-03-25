@@ -5,7 +5,7 @@ import SectionHeading from "../components/SectionHeading";
 
 const Leadership = () => {
   return (
-    <div className="pt-24">
+    <div className="pt-20">
 
 {/* HERO */}
 <section className="section-padding bg-primary text-white text-center">

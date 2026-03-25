@@ -14,7 +14,7 @@ import StatCard from "../components/StatCard";
 
 const About = () => {
   return (
-    <div className="pt-24">
+    <div className="pt-20">
 
       {/* HERO VIDEO */}
       <section className="relative h-[70vh] flex items-center overflow-hidden">
@@ -35,7 +35,7 @@ const About = () => {
 
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto text-center text-white px-6">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white ">
 
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
@@ -60,7 +60,7 @@ const About = () => {
       {/* ABOUT OVERVIEW */}
       <section className="section-padding bg-white">
 
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-6">
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -146,7 +146,7 @@ const About = () => {
 
  {/* PURPOSE / VISION / MISSION */}
 <section className="section-padding bg-white">
-  <div className="max-w-7xl mx-auto">
+  <div className="max-w-7xl mx-auto px-6">
     <div className="grid md:grid-cols-3 gap-8">
 
       {[
@@ -208,7 +208,7 @@ const About = () => {
       {/* WHO WE ARE */}
       <section className="section-padding bg-white">
 
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto px-6 text-center">
 
           <SectionHeading
             subtitle="Who We Are"
@@ -227,90 +227,95 @@ const About = () => {
       </section>
 
 
-      {/* BUSINESS DIVISIONS */}
-      <section className="section-padding bg-slate-50">
+      <section className="section-padding relative bg-slate-50 overflow-hidden">
 
-        <div className="max-w-7xl mx-auto">
+  {/* 🌈 BACKGROUND DESIGN */}
+  <div className="absolute -top-20 -left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
 
-          <SectionHeading
-            subtitle="Our Businesses"
-            title="Healthcare Across the Value Chain"
-          />
+  <div className="max-w-7xl mx-auto px-6 relative">
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <SectionHeading
+      subtitle="Our Businesses"
+      title="Healthcare Across the Value Chain"
+    />
 
-            {[
-              {
-                title: "Pharmaceuticals",
-                desc:
-                  "Manufacturing tablets, capsules, liquids and topicals to GMP standards.",
-                icon: <Factory size={28} />
-              },
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-              {
-                title: "Contract Manufacturing",
-                desc:
-                  "End-to-end production support from formulation to export documentation.",
-                icon: <Factory size={28} />
-              },
+      {[
+        {
+          title: "Pharmaceuticals",
+          desc: "Manufacturing tablets, capsules, liquids and topicals to GMP standards.",
+          icon: <Factory size={26} />
+        },
+        {
+          title: "Contract Manufacturing",
+          desc: "End-to-end production support from formulation to export documentation.",
+          icon: <Factory size={26} />
+        },
+        {
+          title: "Dossier Licensing",
+          desc: "Access to regulatory dossiers enabling faster market entry.",
+          icon: <FlaskConical size={26} />
+        },
+        {
+          title: "Nutraceuticals",
+          desc: "Supplements, vitamins, herbal extracts and functional foods.",
+          icon: <FlaskConical size={26} />
+        },
+        {
+          title: "Contract Development",
+          desc: "Custom formulation services for nutrition brands.",
+          icon: <FlaskConical size={26} />
+        },
+        {
+          title: "Poshan Brand",
+          desc: "QLT's proprietary plant-based nutrition brand.",
+          icon: <FlaskConical size={26} />
+        }
+      ].map((item, idx) => (
 
-              {
-                title: "Dossier Licensing",
-                desc:
-                  "Access to regulatory dossiers enabling faster market entry.",
-                icon: <FlaskConical size={28} />
-              },
+        <motion.div
+          key={item.title}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{ y: -10 }}
+          viewport={{ once: true }}
+          transition={{ delay: idx * 0.1 }}
+          className="group relative bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300"
+        >
 
-              {
-                title: "Nutraceuticals",
-                desc:
-                  "Supplements, vitamins, herbal extracts and functional foods.",
-                icon: <FlaskConical size={28} />
-              },
+          {/* 🔥 HOVER GLOW */}
+          <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-primary/10 to-accent/10 blur-xl"></div>
 
-              {
-                title: "Contract Development",
-                desc:
-                  "Custom formulation services for nutrition brands.",
-                icon: <FlaskConical size={28} />
-              },
-
-              {
-                title: "Poshan Brand",
-                desc:
-                  "QLT's proprietary plant-based nutrition brand.",
-                icon: <FlaskConical size={28} />
-              }
-            ].map((item, idx) => (
-
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-white p-8 rounded-2xl shadow-md"
-              >
-
-                <div className="mb-4 text-primary">{item.icon}</div>
-
-                <h3 className="text-xl font-bold mb-3">
-                  {item.title}
-                </h3>
-
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-                 
-              </motion.div>
-
-            ))}
-
+          {/* ICON */}
+          <div className="relative z-10 mb-5 w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-white shadow-md">
+            {item.icon}
           </div>
-          
-        </div>
 
-      </section>
+          {/* TITLE */}
+          <h3 className="relative z-10 text-xl font-bold mb-3 group-hover:text-primary transition">
+            {item.title}
+          </h3>
+
+          {/* DESC */}
+          <p className="relative z-10 text-slate-600 text-sm leading-relaxed mb-4">
+            {item.desc}
+          </p>
+
+          {/* CTA */}
+          <span className="relative z-10 text-sm font-semibold text-accent opacity-0 group-hover:opacity-100 transition">
+            Learn More →
+          </span>
+
+        </motion.div>
+
+      ))}
+
+    </div>
+
+  </div>
+</section>
       
 
     </div>

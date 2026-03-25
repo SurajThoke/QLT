@@ -43,7 +43,7 @@ const Home = () => {
    </motion.div>
   </div>
 
-  <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 w-full">
+  <div className="relative z-20 max-w-7xl mx-auto px-6 w-full">
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
@@ -57,8 +57,8 @@ const Home = () => {
       </h1>
 
       <p className="text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
-        Pharmaceuticals. Nutraceuticals. Contract Manufacturing.
-        Serving India, Africa and regulated markets worldwide.
+        Pharmaceuticals. Nutraceuticals. Contract Manufacturing.Licensing
+        Serving India, Africa and Regulated Markets Worldwide.
       </p>
 
       <div className="flex flex-wrap gap-4">
@@ -90,7 +90,7 @@ const Home = () => {
 
 {/* ABOUT SECTION */}
 <section className="section-padding bg-white">
-  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+  <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
 
     <motion.div
   initial={{ opacity:0, x:-30, scale:1.05 }}
@@ -122,7 +122,7 @@ const Home = () => {
    {/* Image */}
   <div className="relative h-[420px] rounded-3xl overflow-hidden">
   <img
-    src="/about-image.jpg"
+    src="/about-image2.jpg"
     alt="About QL Therapeutics"
     className="w-full h-full object-cover object-[80%_center]"
   />
@@ -134,7 +134,7 @@ const Home = () => {
 
 {/* LEADERSHIP PREVIEW */}
 <section className="section-padding bg-slate-50">
-  <div className="max-w-7xl mx-auto px-4">
+  <div className="max-w-7xl mx-auto px-6">
 
     <SectionHeading
       subtitle="Leadership"
@@ -269,7 +269,7 @@ const Home = () => {
     <div className="absolute inset-0 bg-black/50"></div>
   </div>
 
-  <div className="relative z-10 max-w-7xl mx-auto text-center">
+  <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
 
     <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">
       Core Capabilities

@@ -94,45 +94,37 @@ const Typewriter = ({ text, speed = 50, pause = 1500 }) => {
 // ✅ MAIN COMPONENT
 const Capabilities = () => {
   return (
-    <div className="pt-24">
+    <div className="pt-20">
 
 
 
 {/* HERO */}
-<section className="relative section-padding text-white text-center overflow-hidden">
+<section className="section-padding bg-primary text-white text-center">
 
-<div className="absolute inset-0">
-<img
-src="/pharma-hero1.jpg"
-className="w-full h-full object-cover"
-/>
-<div className="absolute inset-0 bg-primary/60"></div>
-</div>
+  <div className="max-w-7xl mx-auto px-6">
 
-<div className="relative max-w-4xl mx-auto">
+    <h1 className="text-4xl md:text-5xl font-bold mb-6">
+      Manufacturing & Strategic Capabilities
+    </h1>
 
-<h1 className="text-4xl md:text-5xl font-bold mb-6">
-Manufacturing & Strategic Capabilities
-</h1>
+    <p className="text-white/80 text-lg leading-relaxed">
+      QL Therapeutics unlocks value through integrated pharmaceutical
+      and nutraceutical manufacturing, global partnerships,
+      and regulatory expertise.
+    </p>
 
-<p className="text-white/80 text-lg leading-relaxed">
-QL Therapeutics unlocks value through integrated pharmaceutical
-and nutraceutical manufacturing, global partnerships,
-and regulatory expertise.
-</p>
-
-</div>
+  </div>
 
 </section>
 
 {/* CORE CAPABILITIES */}
 <section className="section-padding relative overflow-hidden bg-white">
 
-  {/* 🌈 SOFT BACKGROUND DESIGN */}
+  {/* 🌈 BACKGROUND */}
   <div className="absolute -top-20 -left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
   <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
 
-  <div className="relative z-10 max-w-6xl mx-auto">
+  <div className="relative z-10 max-w-7xl mx-auto px-6">
 
     {/* HEADING */}
     <div className="mb-20 text-center">
@@ -145,118 +137,90 @@ and regulatory expertise.
       </h2>
     </div>
 
-    {/* 🎯 ZIG-ZAG + IMAGE LAYOUT */}
-    <div className="flex flex-col gap-20">
+    <div className="flex justify-center gap-8 flex-wrap lg:flex-nowrap">
 
-      {[
-        {
-          title:"Nutraceutical Manufacturing",
-          desc:"Production of supplements, vitamins, herbal extracts and functional foods.",
-          icon:<Beaker/>,
-          image:"/nutraceutical.jpg"
-        },
-        {
-          title:"Pharmaceutical Collaborations",
-          desc:"Manufacturing partnerships for tablets, capsules, liquids and topicals.",
-          icon:<Factory/>,
-          image:"/pharma.jpg"
-        },
-        {
-          title:"Marketing & Distribution",
-          desc:"B2B, B2C and D2C distribution across emerging global markets.",
-          icon:<Zap/>,
-          image:"/marketing.jpg"
-        },
-        {
-          title:"Advisory Services",
-          desc:"GMP advisory, dossier sourcing and manufacturing problem solving.",
-          icon:<ShieldCheck/>,
-          image:"/advisory.jpg"
-        }
-      ].map((item, idx) => {
+  {[
+    {
+      title: "Nutraceutical Manufacturing",
+      desc: "Production of supplements, vitamins, herbal extracts and functional foods.",
+      image: "/nutraceutical.jpg"
+    },
+    {
+      title: "Pharmaceutical Collaborations",
+      desc: "Manufacturing partnerships for tablets, capsules, liquids and topicals.",
+      image: "/pharma.jpg"
+    },
+    {
+      title: "Marketing & Distribution",
+      desc: "B2B, B2C and D2C distribution across emerging global markets.",
+      image: "/marketing.jpg"
+    },
+    {
+      title: "Advisory Services",
+      desc: "GMP advisory, dossier sourcing and manufacturing problem solving.",
+      image: "/advisory.jpg"
+    }
+  ].map((item, idx) => (
 
-        const isRight = idx % 2 !== 0;
+    <motion.div
+      key={idx}
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="group flex-1 min-w-[340px] max-w-[380px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col relative"
+    >
 
-        return (
-          <div
-            key={idx}
-            className={`flex items-center gap-10 ${
-              isRight ? "flex-row-reverse" : ""
-            }`}
-          >
+      {/* IMAGE */}
+      <div className="relative h-64 w-full overflow-hidden">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition duration-500"></div>
+      </div>
 
-            {/* 🟦 CARD */}
-            <motion.div
-              initial={{opacity:0, x:isRight ? 80 : -80}}
-              whileInView={{opacity:1, x:0}}
-              viewport={{once:true}}
-              transition={{duration:0.6}}
-              whileHover={{scale:1.05}}
-              className="w-full md:w-[55%] group relative p-8 rounded-3xl border border-slate-200 bg-white shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
-            >
+      {/* CONTENT */}
+      <div className="relative flex flex-col justify-between flex-1 p-10 text-white overflow-hidden">
 
-              {/* 🌈 HOVER GRADIENT */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-primary via-primary/90 to-accent transition-all duration-700"></div>
 
-              {/* CONTENT */}
-              <div className="relative z-10">
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 bg-gradient-to-br from-accent via-primary to-accent"></div>
 
-                <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-white transition duration-300">
-                  {React.cloneElement(item.icon,{ size:28 })}
-                </div>
+        <div className="relative z-10">
 
-                <motion.h3
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.4 }}
-  className="text-xl font-bold text-primary mb-4"
->
-  {item.title}
-</motion.h3>
+          <p className="text-xs tracking-widest uppercase text-white/80 mb-2">
+            /// Core Capability
+          </p>
 
-                <p className="text-slate-600 group-hover:text-slate-700 transition duration-300 text-sm leading-relaxed">
-  <Typewriter text={item.desc} />
-</p>
+          <h3 className="text-xl font-semibold leading-snug">
+            {item.title}
+          </h3>
 
-              </div>
+          <p className="text-sm text-white/80 mt-4 leading-relaxed">
+            {item.desc}
+          </p>
 
-            </motion.div>
+        </div>
 
-            {/* 🖼️ IMAGE */}
-            <motion.div
-              initial={{opacity:0, x:isRight ? -80 : 80}}
-              whileInView={{opacity:1, x:0}}
-              viewport={{once:true}}
-              transition={{duration:0.6}}
-              className="hidden md:block w-[35%]"
-            >
-              <div className="relative h-[260px] rounded-3xl overflow-hidden shadow-lg">
+      </div>
 
-                <img
-                  src={item.image}
-                  className="w-full h-full object-cover"
-                />
+    </motion.div>
 
-                {/* subtle overlay */}
-                <div className="absolute inset-0 bg-black/10"></div>
+  ))}
 
-              </div>
-            </motion.div>
-
-          </div>
-        );
-      })}
-
-    </div>
+</div>
 
   </div>
 
 </section>
 
+
 {/* WHAT SETS US APART */}
 <section className="section-padding bg-slate-50">
 
-<div className="max-w-7xl mx-auto">
+<div className="max-w-7xl mx-auto px-6">
 
 <SectionHeading
 subtitle="Our Edge"
@@ -267,14 +231,14 @@ centered
 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
 
 {[
-"WORLD CLASS MANUFACTURING FACILITY",
-"DEDICATED RESEARCH AND DEVELOPMENT WING",
-"CUTTING EDGE MANUFACTURING TECHNOLOGY",
-"EXCLUSIVE PERSONAL CARE MANUFACTURING FACILITY",
-"WHO-GMP CERTIFIED FACILITY",
-"USFDA REGISTERED",
-"DEDICATED DISKETTE MANUFACTURING LINE",
-"300+ FORMULATIONS"
+"World-Class Manufacturing Facility",
+"Dedicated Research And Development Wing",
+"Cutting-Edge Manufacturing Technology",
+"Exclusive Personal Care Manufacturing Facility",
+"WHO-GMP Certified Facility",
+"USFDA Registered Facility",
+"Dedicated Diskette Manufacturing Line",
+"300+ Formulations"
 ].map((item,idx)=>(
 
 <motion.div
@@ -305,7 +269,7 @@ className="bg-white p-6 rounded-2xl shadow-md flex items-start gap-4"
 
 
 <section className="section-padding bg-slate-50 text-center">
-  <div className="max-w-7xl mx-auto">
+  <div className="max-w-7xl mx-auto px-6">
 
     <SectionHeading
       subtitle="Quality Standards"
@@ -331,7 +295,7 @@ className="bg-white p-6 rounded-2xl shadow-md flex items-start gap-4"
 {/* MANUFACTURING INFRASTRUCTURE */}
 <section className="section-padding bg-white">
 
-<div className="max-w-7xl mx-auto">
+<div className="max-w-7xl mx-auto px-6">
 
 <SectionHeading
 subtitle="Manufacturing Infrastructure"
@@ -342,19 +306,19 @@ title="Precision Engineered Production"
 
 {[
 {
-img:"/manufacturing-machine.jpg",
+img:"/manufacturing-machine1.jpg",
 title:"Automatic Machines for Tablets & Capsules"
 },
 {
-img:"/liquid-production.jpg",
+img:"/liquid-production1.jpg",
 title:"Fully Automated Syrup & Liquid Lines"
 },
 {
-img:"/rd-lab.jpg",
+img:"/rd-lab1.jpg",
 title:"Qualified Formulation & R&D Team"
 },
 {
-img:"/qa-lab.jpg",
+img:"/qa-lab1.jpg",
 title:"Dedicated QA & QC In-House Lab"
 }
 ].map((item,idx)=>(
@@ -397,7 +361,7 @@ className="w-full h-[280px] object-cover group-hover:scale-110 transition durati
 {/* MANUFACTURING APPROACH */}
 <section className="section-padding bg-slate-50">
 
-<div className="max-w-6xl mx-auto">
+<div className="max-w-7xl mx-auto px-6">
 
 <SectionHeading
 subtitle="Quality First"
@@ -449,7 +413,7 @@ is traceable to ensure regulatory compliance and consistent quality.
 <div className="absolute top-10 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
 <div className="absolute bottom-10 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
 
-<div className="max-w-6xl mx-auto relative">
+<div className="max-w-7xl mx-auto px-6 relative">
 
 <div className="bg-primary text-white rounded-3xl shadow-2xl px-10 py-20 text-center">
 

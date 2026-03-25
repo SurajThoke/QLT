@@ -6,12 +6,12 @@ import emailjs from 'emailjs-com';
 
 const Contact = () => {
   return (
-    <div className="pt-24">
+    <div className="pt-20">
       <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
 
-            {/* LEFT */}
+            {/* ================= LEFT (FORM) ================= */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -54,8 +54,8 @@ const Contact = () => {
                       name="user_name"
                       required
                       type="text"
-                      className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent outline-none transition-all"
-                      placeholder="John Doe"
+                      className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent outline-none"
+                      placeholder=""
                     />
                   </div>
 
@@ -68,9 +68,8 @@ const Contact = () => {
                       name="user_email"
                       required
                       type="email"
-                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                      className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent outline-none transition-all"
-                      placeholder="john@example.com"
+                      className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent outline-none"
+                      placeholder=""
                     />
                   </div>
 
@@ -85,9 +84,8 @@ const Contact = () => {
                     name="user_phone"
                     required
                     type="tel"
-                    pattern="[6-9]{1}[0-9]{9}"
-                    className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent outline-none transition-all"
-                    placeholder="+91 00000 00000"
+                    className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent outline-none"
+                    placeholder="+91 "
                   />
                 </div>
 
@@ -100,7 +98,7 @@ const Contact = () => {
                     name="message"
                     required
                     rows={4}
-                    className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent outline-none transition-all"
+                    className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent outline-none"
                     placeholder="How can we help you?"
                   ></textarea>
                 </div>
@@ -109,62 +107,99 @@ const Contact = () => {
                   Send Message
                 </button>
               </form>
+              {/* ===== EMAIL BELOW FORM ===== */}
+<div className="mt-10 flex gap-4 items-start bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+  
+  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+    <Mail size={22} />
+  </div>
+
+  <div>
+    <h4 className="text-lg font-bold text-primary mb-1">
+      Email Us
+    </h4>
+    <p className="text-slate-500 text-sm">
+      Reach out anytime — we usually respond within 24 hours.
+    </p>
+
+    <a
+      href="mailto:info@qltherapeutics.com"
+      className="inline-block mt-2 text-accent font-medium hover:underline"
+    >
+      info@qltherapeutics.com
+    </a>
+  </div>
+
+</div>
             </motion.div>
 
-            {/* RIGHT */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-12"
-            >
-              <div className="space-y-8">
+{/* ================= RIGHT (OFFICES) ================= */}
+<motion.div
+  initial={{ opacity: 0, x: 30 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  className="space-y-10"
+>
 
-                {/* Address */}
-                <div className="flex gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center text-primary shrink-0">
-                    <MapPin size={28} />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-primary mb-2">
-                      Headquarters
-                    </h4>
-                    <p className="text-slate-500 leading-relaxed">
-                      716, Ganesh Glory, Jagatpur Road<br />
-                      Gota, Ahmedabad, India
-                    </p>
-                  </div>
-                </div>
+  {/* ===== HEADQUARTERS ===== */}
+  <div className="bg-white p-6 rounded-3xl shadow-md space-y-4">
 
-                {/* Email */}
-                <div className="flex gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center text-primary shrink-0">
-                    <Mail size={28} />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-primary mb-2">
-                      Email Us
-                    </h4>
-                    <a
-                      href="mailto:info@qltherapeutics.com"
-                      className="text-slate-500 hover:text-accent transition-colors"
-                    >
-                      info@qltherapeutics.com
-                    </a>
-                  </div>
-                </div>
+    <div className="flex gap-4 items-start">
+      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+        <MapPin size={22} />
+      </div>
 
-              </div>
+      <div>
+        <h4 className="text-lg font-bold text-primary">
+          Headquarters
+        </h4>
+        <p className="text-slate-500 text-sm leading-relaxed">
+          716, Ganesh Glory, Jagatpur Road <br />
+          Gota, Ahmedabad, India
+        </p>
+      </div>
+    </div>
 
-              {/* GOOGLE MAP */}
-              <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7515220.527268085!2d62.785419925!3d23.113882599999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e830065f642f9%3A0x47fa0a1ca6caf472!2sQL%20Therapeutics%20-%20Corporate%20Office!5e0!3m2!1sen!2sin!4v1773338812343!5m2!1sen!2sin"
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7515220.527268085!2d62.785419925!3d23.113882599999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e830065f642f9%3A0x47fa0a1ca6caf472!2sQL%20Therapeutics%20-%20Corporate%20Office!5e0!3m2!1sen!2sin!4v1773338812343!5m2!1sen!2sin"
+      className="w-full h-[260px] rounded-2xl border-0"
+      loading="lazy"
+    ></iframe>
 
-                className="w-full h-[300px] rounded-3xl border-0"
-                loading="lazy"
-              ></iframe>
+  </div>
 
-            </motion.div>
+
+  {/* ===== SECOND OFFICE ===== */}
+  <div className="bg-white p-6 rounded-3xl shadow-md space-y-4">
+
+    <div className="flex gap-4 items-start">
+      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+        <MapPin size={22} />
+      </div>
+
+      <div>
+        <h4 className="text-lg font-bold text-primary">
+          Manufacturing Plant
+        </h4>
+        <p className="text-slate-500 text-sm leading-relaxed">
+          Phase III, Bio Tech Park, Plot No: 49, SEZ <br />
+          Karkapatla, Telangana 502279
+        </p>
+      </div>
+    </div>
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.562339694528!2d78.7126548!3d17.684853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb7f004aba6951%3A0xb8e1809ab4df77ae!2sQL%20Therapeutics%20-%20Nutraceutical%20Manufacturing%20Plant!5e1!3m2!1sen!2sin!4v1774427279824!5m2!1sen!2sin"
+      className="w-full h-[260px] rounded-2xl border-0"
+      loading="lazy"
+    ></iframe>
+
+  </div>
+
+
+  
+
+</motion.div>
 
           </div>
         </div>
