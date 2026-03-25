@@ -56,10 +56,17 @@ const Home = () => {
         <span className="text-accent">The Heart of Care.</span>
       </h1>
 
-      <p className="text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
-        Pharmaceuticals. Nutraceuticals. Contract Manufacturing.Licensing
-        Serving India, Africa and Regulated Markets Worldwide.
-      </p>
+      <div className="text-xl text-white/80 mb-10 max-w-2xl leading-relaxed space-y-2">
+
+  <p>
+    Pharmaceuticals & Nutraceuticals. Contract Manufacturing & Licensing.
+    </p>
+
+  <p className="text-white/80">
+    Serving India, Africa and Regulated Markets Worldwide
+  </p>
+
+</div>
 
       <div className="flex flex-wrap gap-4">
   <Link to="/capabilities" className="btn-accent">
@@ -90,47 +97,72 @@ const Home = () => {
 
 {/* ABOUT SECTION */}
 <section className="section-padding bg-white">
-  <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+  <div className="max-w-7xl mx-auto px-6">
 
-    <motion.div
-  initial={{ opacity:0, x:-30, scale:1.05 }}
-  whileInView={{ opacity:1, x:0, scale:1 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once:true }}
->
-      <SectionHeading
-        subtitle="About QL Therapeutics"
-        title="Building Accessible Healthcare for Emerging Markets"
-      />
+    {/* ✅ ATTACHED CONTAINER */}
+    <div className="grid lg:grid-cols-2 rounded-3xl overflow-hidden shadow-lg">
 
-      <p className="text-lg text-slate-600 mb-6">
-        QL Therapeutics is a purpose-driven pharmaceutical and nutraceutical
-        company committed to bridging the healthcare gap in emerging markets.
-      </p>
+      {/* 🔴 LEFT VIDEO (NO STRETCH) */}
+      <div className="relative">
 
-      <p className="text-lg text-slate-600 mb-8">
-        Our focus spans branded generics, specialty pharmaceuticals and
-        nutraceuticals supported by end-to-end product development and
-        global distribution partnerships.
-      </p>
+        <video
+          src="/about-video.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover max-h-[420px]"
+        />
 
-      <Link to="/about" className="btn-primary inline-flex items-center gap-2">
-        Learn More <ArrowRight size={18}/>
-      </Link>
-    </motion.div>
-    
-   {/* Image */}
-  <div className="relative h-[420px] rounded-3xl overflow-hidden">
-  <img
-    src="/about-image2.jpg"
-    alt="About QL Therapeutics"
-    className="w-full h-full object-cover object-[80%_center]"
-  />
-  <div className="absolute inset-0 bg-black/20"></div>
-</div>
+        <div className="absolute inset-0 bg-black/20"></div>
+
+      </div>
+
+      {/* 🟢 RIGHT CONTENT (CONTROLS HEIGHT) */}
+      <motion.div
+        initial={{ opacity:0, x:30 }}
+        whileInView={{ opacity:1, x:0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once:true }}
+        className="group relative p-6 md:p-8 bg-white flex flex-col justify-center"
+      >
+
+        {/* Hover background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+        <div className="relative z-10 transition-colors duration-500">
+
+          <SectionHeading
+            subtitle="About QL Therapeutics"
+            title="Building Accessible Healthcare for Emerging Markets"
+          />
+
+          <p className="text-base md:text-lg text-slate-600 mb-4 group-hover:text-white/90 transition duration-500">
+            QL Therapeutics is a purpose-driven pharmaceutical and nutraceutical
+            company committed to bridging the healthcare gap in emerging markets.
+          </p>
+
+          <p className="text-base md:text-lg text-slate-600 mb-6 group-hover:text-white/90 transition duration-500">
+            Our focus spans branded generics, specialty pharmaceuticals and
+            nutraceuticals supported by end-to-end product development and
+            global distribution partnerships.
+          </p>
+
+          <Link
+            to="/about"
+            className="btn-primary inline-flex items-center gap-2 group-hover:bg-white group-hover:text-primary transition"
+          >
+            Learn More <ArrowRight size={18}/>
+          </Link>
+
+        </div>
+
+      </motion.div>
+
+    </div>
+
   </div>
 </section>
-
 
 {/* LEADERSHIP PREVIEW */}
 <section className="section-padding bg-slate-50">
@@ -152,18 +184,25 @@ const Home = () => {
             src="/vineet.jpg" 
             alt="Vineet Shiva"
             className="w-full h-full object-cover 
-                       transition-all duration-500 
-                       grayscale group-hover:grayscale-0 
-                       group-hover:scale-105"
-          />
+             transition-all duration-500 
+             grayscale 
+             group-hover:grayscale-0 
+             group-hover:scale-105
+             group-active:grayscale-0
+             group-active:scale-105"
+/>
         </div>
         
         <div className="p-8 pt-6">
           <h3 className="text-2xl font-bold text-slate-900 mb-1">
             Mr. Vineet Shiva
           </h3>
-          <p className="text-slate-500 font-medium mb-6">
-            Founder & Strategic Leader
+          <p className="text-slate-500 font-medium ">
+            Founder
+          </p>
+
+          <p className="text-slate-500 font-medium mb-6 ">
+            Director, Commercial Expert
           </p>
           
           <div className="flex items-center justify-between">
@@ -203,20 +242,25 @@ const Home = () => {
             src="/madhu.jpg" 
             alt="Madhu Swarna"
             className="w-full h-full object-cover 
-                       transition-all duration-500 
-                       grayscale group-hover:grayscale-0 
-                       group-hover:scale-105"
-          />
+             transition-all duration-500 
+             grayscale 
+             group-hover:grayscale-0 
+             group-hover:scale-105
+             group-active:grayscale-0
+             group-active:scale-105"
+/>
         </div>
         
         <div className="p-8 pt-6">
           <h3 className="text-2xl font-bold text-slate-900 mb-1">
             Mr. Madhu Swarna
           </h3>
-          <p className="text-slate-500 font-medium mb-6">
-            Co-Founder and Technical Expert
+          <p className="text-slate-500 font-medium ">
+            Founder
           </p>
-          
+          <p className="text-slate-500 font-medium mb-6">
+            Director, Technical Expert
+          </p>
           <div className="flex items-center justify-between">
             
             <Link 
@@ -262,7 +306,7 @@ const Home = () => {
       playsInline
       className="w-full h-full object-cover opacity-60"
     >
-      <source src="/capabilities-video.mp4" type="video/mp4" />
+      <source src="/capabilities-video1.mp4" type="video/mp4" />
     </video>
 
     {/* LIGHT OVERLAY (so text is readable but video visible) */}
@@ -283,13 +327,13 @@ const Home = () => {
           title:"Nutraceutical ",
           desc:"",
           icon:<Beaker/>,
-          image:"/nutraceutical.jpg"
+          image:"/nutraceutical1.jpg"
         },
         {
           title:"Pharmaceutical ",
           desc:"",
           icon:<Users/>,
-          image:"/pharma.jpg"
+          image:"/pharma1.jpg"
         }
       ].map((item,idx)=>(
 
@@ -367,11 +411,11 @@ const Home = () => {
       <div className="relative z-10 text-white">
 
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          PARTNER WITH QL Therapeutics
+          Partner with QL Therapeutics
         </h2>
 
         <p className="text-white/90 mb-8 max-w-2xl mx-auto text-lg">
-          COLLABORATE WITH US FOR NUTRACEUTICAL DEVELOPMENT & MANUFACTURING, LICENSING 
+          Collaborate with us for Pharmaceutical and Nutraceutical Development, Manufacturing, and Licensing 
         </p>
 
         <Link

@@ -6,7 +6,13 @@ import {
   TrendingUp,
   CheckCircle2,
   Factory,
-  FlaskConical
+  FlaskConical,
+  Pill,
+  Leaf,
+  Beaker,
+  FileCheck,
+  ShieldCheck
+
 } from "lucide-react";
 
 import SectionHeading from "../components/SectionHeading";
@@ -47,8 +53,7 @@ const About = () => {
           </motion.h1>
 
           <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
-            Delivering innovative pharmaceutical and nutraceutical solutions
-            for emerging markets worldwide.
+            Delivering Innovative Pharmaceutical and Nutraceutical Solutions for Emerging Markets Worldwide
           </p>
 
         </div>
@@ -58,91 +63,104 @@ const About = () => {
 
 
       {/* ABOUT OVERVIEW */}
-      <section className="section-padding bg-white">
+<section className="section-padding bg-white">
 
-        <div className="max-w-7xl mx-auto px-6">
+  <div className="max-w-7xl mx-auto px-6">
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+      {/* LEFT CONTENT */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+      >
 
-              <SectionHeading
-                subtitle="About QL Therapeutics"
-                title="Building Accessible Healthcare for Emerging Markets"
-              />
+        <SectionHeading
+          subtitle="About QL Therapeutics"
+          title="Building Accessible Healthcare for Emerging Markets"
+        />
 
-              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                QL Therapeutics was founded with a mission to bridge the healthcare
-                gap in emerging markets by delivering accessible and high-quality
-                pharmaceutical and nutraceutical solutions.
-              </p>
+        <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+          QL Therapeutics was founded with a mission to bridge the healthcare
+          gap in emerging markets by delivering accessible and high-quality
+          pharmaceutical and nutraceutical solutions.
+        </p>
 
-              <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-6">
 
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <CheckCircle2 size={20} />
-                  </div>
-                  <span className="font-semibold text-primary">
-                    Global Partnerships
-                  </span>
-                </div>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <CheckCircle2 size={20} />
+            </div>
+            <span className="font-semibold text-primary">
+              Global Partnerships
+            </span>
+          </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <CheckCircle2 size={20} />
-                  </div>
-                  <span className="font-semibold text-primary">
-                    Regulatory Expertise
-                  </span>
-                </div>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <CheckCircle2 size={20} />
+            </div>
+            <span className="font-semibold text-primary">
+              Regulatory Expertise
+            </span>
+          </div>
 
-              </div>
-
-            </motion.div>
-
-
-             {/* Image Stat Cards */}
-    <div className="grid grid-cols-3 gap-6">
-
-      <div className="group relative h-44 rounded-3xl overflow-hidden text-white flex items-end p-6">
-        <img src="/products.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative">
-          <h3 className="text-3xl font-bold">150+</h3>
-          <p className="text-sm">Products</p>
         </div>
-      </div>
 
-      <div className="group relative h-44 rounded-3xl overflow-hidden text-white flex items-end p-6">
-        <img src="/global.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative">
-          <h3 className="text-3xl font-bold">45</h3>
-          <p className="text-sm">Global Markets</p>
-        </div>
-      </div>
+      </motion.div>
 
-      <div className="group relative h-44 rounded-3xl overflow-hidden text-white flex items-end p-6">
-        <img src="/research.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative">
-          <h3 className="text-3xl font-bold">5</h3>
-          <p className="text-sm">R&D Hubs</p>
+
+      {/* RIGHT SIDE - 2 IMAGES */}
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="grid gap-6"
+      >
+
+        {/* IMAGE 1 (PRODUCTS) */}
+        <div className="group relative h-[200px] rounded-3xl overflow-hidden text-white flex items-end p-6 shadow-lg">
+
+          <img
+            src="/products.jpg"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+
+          <div className="absolute inset-0 bg-black/50"></div>
+
+          <div className="relative">
+            <h3 className="text-4xl font-bold">300+</h3>
+            <p className="text-sm">Products</p>
+          </div>
+
         </div>
-      </div>
-      </div>
+
+        {/* IMAGE 2 (ADD YOUR SECOND IMAGE HERE) */}
+        <div className="group relative h-[200px] rounded-3xl overflow-hidden text-white flex items-end p-6 shadow-lg">
+
+          <img
+            src="/research.jpg"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+
+          <div className="absolute inset-0 bg-black/50"></div>
+
+          <div className="relative">
+            <h3 className="text-4xl font-bold">5</h3>
+            <p className="text-sm">R&D Hubs</p>
+          </div>
+
+        </div>
+
+      </motion.div>
 
     </div>
 
+  </div>
 
-        </div>
-
-      </section>
+</section>
 
  {/* PURPOSE / VISION / MISSION */}
 <section className="section-padding bg-white">
@@ -172,11 +190,15 @@ const About = () => {
 
         <motion.div
           key={item.title}
-          whileHover={{ y: -10, scale: 1.03 }}
-          className="group relative bg-white p-10 rounded-3xl shadow-lg border border-slate-100 overflow-hidden transition-all duration-500"
+          whileHover={{ y: -12, scale: 1.04 }}
+          className="group relative bg-white p-10 rounded-3xl 
+          shadow-2xl 
+          hover:shadow-[0_30px_80px_rgba(0,0,0,0.25)] 
+          border border-slate-200 
+          overflow-hidden transition-all duration-500"
         >
 
-          {/* Animated Background Fill */}
+          {/* Gradient Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
 
           {/* Content */}
@@ -204,30 +226,49 @@ const About = () => {
   </div>
 </section>
 
+ {/* WHO WE ARE - PREMIUM */}
+<section className="relative min-h-[70vh] lg:h-[90vh] overflow-hidden">
 
-      {/* WHO WE ARE */}
-      <section className="section-padding bg-white">
+  {/* 🎥 BACKGROUND VIDEO */}
+  <video
+    src="/about-Who-we-are.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  />
 
-        <div className="max-w-7xl mx-auto px-6 text-center">
+  {/* OVERLAY */}
+  <div className="absolute inset-0 bg-black/30"></div>
 
-          <SectionHeading
-            subtitle="Who We Are"
-            title="Built by Healthcare Professionals"
-          />
+  {/* CONTENT WRAPPER */}
+  <div className="relative z-10 w-full h-full flex items-center justify-end px-4 sm:px-6 lg:px-10">
 
-          <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            QLT was started by professionals who have spent decades working
-            within the healthcare industry — not just discussing it but
-            building, manufacturing, distributing and scaling healthcare
-            businesses globally.
-          </p>
+    {/* 🧾 RIGHT SIDE CARD (SLIGHTLY BIGGER) */}
+    <div className="bg-white/95 backdrop-blur-md rounded-2xl p-8 md:p-12 max-w-2xl shadow-xl text-left">
 
-        </div>
+      <SectionHeading
+        subtitle="Who We Are"
+        title="Built by Healthcare Professionals"
+      />
 
-      </section>
+      {/* ✅ INCREASED TEXT SIZE */}
+      <p className="text-lg md:text-xl text-slate-600 leading-relaxed mt-2">
+        QLT was started by professionals who have spent decades working
+        within the healthcare industry — not just discussing it but
+        building, manufacturing, distributing and scaling healthcare
+        businesses globally.
+      </p>
 
+    </div>
 
-      <section className="section-padding relative bg-slate-50 overflow-hidden">
+  </div>
+
+</section>
+
+{/* BUSINESS DIVISIONS */}
+<section className="section-padding relative overflow-hidden bg-white">
 
   {/* 🌈 BACKGROUND DESIGN */}
   <div className="absolute -top-20 -left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
@@ -240,38 +281,19 @@ const About = () => {
       title="Healthcare Across the Value Chain"
     />
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {/* 🔷 TOP 2 BIG CARDS */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
 
       {[
         {
           title: "Pharmaceuticals",
           desc: "Manufacturing tablets, capsules, liquids and topicals to GMP standards.",
-          icon: <Factory size={26} />
-        },
-        {
-          title: "Contract Manufacturing",
-          desc: "End-to-end production support from formulation to export documentation.",
-          icon: <Factory size={26} />
-        },
-        {
-          title: "Dossier Licensing",
-          desc: "Access to regulatory dossiers enabling faster market entry.",
-          icon: <FlaskConical size={26} />
+          icon: <Pill size={26} />
         },
         {
           title: "Nutraceuticals",
           desc: "Supplements, vitamins, herbal extracts and functional foods.",
-          icon: <FlaskConical size={26} />
-        },
-        {
-          title: "Contract Development",
-          desc: "Custom formulation services for nutrition brands.",
-          icon: <FlaskConical size={26} />
-        },
-        {
-          title: "Poshan Brand",
-          desc: "QLT's proprietary plant-based nutrition brand.",
-          icon: <FlaskConical size={26} />
+          icon: <Leaf size={26} />
         }
       ].map((item, idx) => (
 
@@ -279,34 +301,109 @@ const About = () => {
           key={item.title}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          whileHover={{ y: -10 }}
+          whileHover={{ y: -10, scale: 1.03 }}
+          whileTap={{ scale: 0.96 }}
           viewport={{ once: true }}
           transition={{ delay: idx * 0.1 }}
-          className="group relative bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300"
+          className="group relative bg-white p-10 rounded-3xl border-2 border-primary/40 shadow-lg overflow-hidden transition-all duration-500 cursor-pointer"
         >
 
-          {/* 🔥 HOVER GLOW */}
-          <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-primary/10 to-accent/10 blur-xl"></div>
+          {/* SAME HOVER EFFECT */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent 
+            opacity-0 group-hover:opacity-100 group-active:opacity-100 
+            transition duration-500 z-0"
+          ></div>
 
-          {/* ICON */}
-          <div className="relative z-10 mb-5 w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-white shadow-md">
-            {item.icon}
+          <div className="relative z-10 transition-colors duration-500 text-center">
+
+            <div className="mb-6 flex justify-center">
+              {React.cloneElement(item.icon, {
+                className:
+                  "text-accent group-hover:text-white group-active:text-white transition duration-500"
+              })}
+            </div>
+
+            <h3 className="text-2xl font-bold mb-4 text-primary 
+              group-hover:text-white group-active:text-white transition duration-500">
+              {item.title}
+            </h3>
+
+            <p className="text-slate-600 leading-relaxed 
+              group-hover:text-white/90 group-active:text-white/90 transition duration-500">
+              {item.desc}
+            </p>
+
           </div>
 
-          {/* TITLE */}
-          <h3 className="relative z-10 text-xl font-bold mb-3 group-hover:text-primary transition">
-            {item.title}
-          </h3>
+        </motion.div>
 
-          {/* DESC */}
-          <p className="relative z-10 text-slate-600 text-sm leading-relaxed mb-4">
-            {item.desc}
-          </p>
+      ))}
 
-          {/* CTA */}
-          <span className="relative z-10 text-sm font-semibold text-accent opacity-0 group-hover:opacity-100 transition">
-            Learn More →
-          </span>
+    </div>
+
+    {/* 🔶 BOTTOM 4 SMALL CARDS */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      {[
+        {
+          title: "Contract Manufacturing",
+          desc: "End-to-end production support from formulation to export documentation.",
+          icon: <Factory size={26} />
+        },
+        {
+          title: "Contract Development",
+          desc: "Custom formulation services for nutrition brands.",
+          icon: <Beaker size={26} />
+        },
+        {
+          title: "Dossier Licensing",
+          desc: "Access to regulatory dossiers enabling faster market entry.",
+          icon: <FileCheck size={26} />
+        },
+        {
+          title: "Proprietary Medicines",
+          desc: "Specialised nutritional formulations.",
+          icon: <ShieldCheck size={26} />
+        }
+      ].map((item, idx) => (
+
+        <motion.div
+          key={item.title}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{ y: -10, scale: 1.03 }}
+          whileTap={{ scale: 0.96 }}
+          viewport={{ once: true }}
+          transition={{ delay: idx * 0.1 }}
+          className="group relative bg-white p-6 rounded-2xl border-2 border-primary/40 shadow-lg overflow-hidden transition-all duration-500 cursor-pointer"
+        >
+
+          {/* SAME HOVER EFFECT */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent 
+            opacity-0 group-hover:opacity-100 group-active:opacity-100 
+            transition duration-500 z-0"
+          ></div>
+
+          <div className="relative z-10 transition-colors duration-500 text-center">
+
+            <div className="mb-4 flex justify-center">
+              {React.cloneElement(item.icon, {
+                className:
+                  "text-accent group-hover:text-white group-active:text-white transition duration-500"
+              })}
+            </div>
+
+            <h3 className="text-lg font-bold mb-2 text-primary 
+              group-hover:text-white group-active:text-white transition duration-500">
+              {item.title}
+            </h3>
+
+            <p className="text-sm text-slate-600 
+              group-hover:text-white/90 group-active:text-white/90 transition duration-500">
+              {item.desc}
+            </p>
+
+          </div>
 
         </motion.div>
 

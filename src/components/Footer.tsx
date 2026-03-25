@@ -4,18 +4,31 @@ import { ArrowRight } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <div className="logo-placeholder w-10 h-10 bg-white/10 text-white border-white/20">QLT</div>
-              <span className="text-2xl font-bold">QL Therapeutics</span>
-            </div>
-            <p className="text-white/60 text-sm leading-relaxed">
-              ADVANCING GLOBAL HEALTH THROUGH SCIENTIFIC PRECISION AND INNOVATIVE SOLUTIONS. 
-            </p>
+   <footer className="bg-primary text-white pt-20 pb-10">
+  <div className="max-w-7xl mx-auto px-6 md:px-12">
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+      {/* LEFT SECTION */}
+      <div className="space-y-6">
+
+        {/* LOGO + NAME */}
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 flex items-center justify-center rounded-md bg-white/10 border border-white/20 text-sm font-bold">
+            QLT
           </div>
+
+          <h2 className="text-xl md:text-2xl font-bold leading-tight">
+            QL Therapeutics Pvt Ltd
+          </h2>
+        </div>
+
+        {/* DESCRIPTION */}
+        <p className="text-white/70 text-sm leading-relaxed max-w-sm">
+          Advancing Global Health Through Scientific Precision and Innovative Solutions.
+        </p>
+
+      </div>
           
           <div>
             <h4 className="text-lg font-bold mb-6">Quick Links</h4>

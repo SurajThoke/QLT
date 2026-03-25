@@ -22,15 +22,16 @@ const Navbar = () => {
 
   const navLinks = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
+  { name: 'About Us', href: '/about' },
   { name: 'Leadership', href: '/leadership' },
   { name: 'Capabilities', href: '/capabilities' },
+  { name: 'Visual Insights', href: '/VisualInsight' },
 
   FEATURES.portfolio && { name: 'Portfolio', href: '/portfolio' },
   FEATURES.global && { name: 'Global Presence', href: '/global' },
   FEATURES.insights && { name: 'Insights', href: '/insights' },
 
-  { name: 'Contact', href: '/contact' },
+  { name: 'Contact Us', href: '/contact' },
 ].filter(Boolean); // 🔥 IMPORTANT
   const isActive = (path: string) => location.pathname === path;
 
@@ -41,7 +42,7 @@ const Navbar = () => {
         {/* Logo Only */}
         <Link to="/" className="flex items-center">
           <img
-            src="/logo.png"
+            src="/logo1.png"
             alt="QL Therapeutics Logo"
             className="h-16 md:h-18 w-auto object-contain"
           />

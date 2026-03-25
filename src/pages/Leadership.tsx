@@ -67,9 +67,8 @@ Founder & Strategic Leader
 </p>
 
 <p className="text-slate-600 text-sm leading-relaxed mb-6">
-30 years of pharmaceutical experience across India,
-Europe and Africa. Led Zydus South Africa business
-for nearly a decade.
+30 Years of Global Pharmaceutical Experience Across India, Europe, and Africa.
+Experienced in Leading and Scaling Businesses
 </p>
 
 <ul className="space-y-2 text-sm text-slate-600 text-left">
@@ -120,8 +119,7 @@ Co-Founder and Technical Expert
 </p>
 
 <p className="text-slate-600 text-sm leading-relaxed mb-6">
-Permanent resident of South Africa with over
-23 years of healthcare industry experience.
+Over 23 Years of Healthcare Industry Experience
 </p>
 
 <ul className="space-y-2 text-sm text-slate-600 text-left">

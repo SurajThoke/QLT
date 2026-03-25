@@ -137,80 +137,83 @@ const Capabilities = () => {
       </h2>
     </div>
 
-    <div className="flex justify-center gap-8 flex-wrap lg:flex-nowrap">
+    {/* CARDS */}
+    <div className="flex justify-center gap-8 flex-wrap">
 
-  {[
-    {
-      title: "Nutraceutical Manufacturing",
-      desc: "Production of supplements, vitamins, herbal extracts and functional foods.",
-      image: "/nutraceutical.jpg"
-    },
-    {
-      title: "Pharmaceutical Collaborations",
-      desc: "Manufacturing partnerships for tablets, capsules, liquids and topicals.",
-      image: "/pharma.jpg"
-    },
-    {
-      title: "Marketing & Distribution",
-      desc: "B2B, B2C and D2C distribution across emerging global markets.",
-      image: "/marketing.jpg"
-    },
-    {
-      title: "Advisory Services",
-      desc: "GMP advisory, dossier sourcing and manufacturing problem solving.",
-      image: "/advisory.jpg"
-    }
-  ].map((item, idx) => (
+      {[
+        {
+          title: "Nutraceutical Manufacturing",
+          desc: "Production of supplements, vitamins, herbal extracts and functional foods.",
+          image: "/nutraceutical2.jpg"
+        },
+        {
+          title: "Pharmaceutical Collaborations",
+          desc: "Manufacturing partnerships for tablets, capsules, liquids and topicals.",
+          image: "/pharma2.jpg"
+        },
+        {
+          title: "Marketing & Distribution",
+          desc: "B2B, B2C and D2C distribution across emerging global markets.",
+          image: "/marketing1.jpg"
+        },
+        {
+          title: "Advisory Services",
+          desc: "GMP advisory, dossier sourcing and manufacturing problem solving.",
+          image: "/advisory.jpg"
+        }
+      ].map((item, idx) => (
 
-    <motion.div
-      key={idx}
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="group flex-1 min-w-[340px] max-w-[380px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col relative"
-    >
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="group w-full sm:w-[45%] lg:w-[23%] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col relative bg-white border border-slate-100"
+        >
 
-      {/* IMAGE */}
-      <div className="relative h-64 w-full overflow-hidden">
-        <img
-          src={item.image}
-          alt={item.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition duration-500"></div>
-      </div>
+          {/* IMAGE */}
+          <div className="relative h-64 w-full overflow-hidden">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition duration-500"></div>
+          </div>
 
-      {/* CONTENT */}
-      <div className="relative flex flex-col justify-between flex-1 p-10 text-white overflow-hidden">
+          {/* CONTENT */}
+          <div className="relative flex flex-col justify-between flex-1 p-10 overflow-hidden">
 
-        <div className="absolute inset-0 bg-gradient-to-b from-primary via-primary/90 to-accent transition-all duration-700"></div>
+            {/* ✅ CORRECT CLEAN GRADIENT */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
 
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 bg-gradient-to-br from-accent via-primary to-accent"></div>
+            <div className="relative z-10 transition-colors duration-500">
 
-        <div className="relative z-10">
+              <p className="text-xs tracking-widest uppercase text-slate-500 mb-2 
+                group-hover:text-white/70 transition duration-500">
+                Core Capability
+              </p>
 
-          <p className="text-xs tracking-widest uppercase text-white/80 mb-2">
-            /// Core Capability
-          </p>
+              <h3 className="text-xl font-semibold leading-snug text-primary 
+                group-hover:text-white transition duration-500">
+                {item.title}
+              </h3>
 
-          <h3 className="text-xl font-semibold leading-snug">
-            {item.title}
-          </h3>
+              <p className="text-sm text-slate-600 mt-4 leading-relaxed 
+                group-hover:text-white/80 transition duration-500">
+                {item.desc}
+              </p>
 
-          <p className="text-sm text-white/80 mt-4 leading-relaxed">
-            {item.desc}
-          </p>
+            </div>
 
-        </div>
+          </div>
 
-      </div>
+        </motion.div>
 
-    </motion.div>
+      ))}
 
-  ))}
-
-</div>
+    </div>
 
   </div>
 
@@ -220,54 +223,64 @@ const Capabilities = () => {
 {/* WHAT SETS US APART */}
 <section className="section-padding bg-slate-50">
 
-<div className="max-w-7xl mx-auto px-6">
+  <div className="max-w-7xl mx-auto px-6">
 
-<SectionHeading
-subtitle="Our Edge"
-title="What Sets Our Manufacturing Apart"
-centered
-/>
+    <SectionHeading
+      subtitle="Our Edge"
+      title="What Sets Our Manufacturing Apart"
+      centered
+    />
 
-<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
 
-{[
-"World-Class Manufacturing Facility",
-"Dedicated Research And Development Wing",
-"Cutting-Edge Manufacturing Technology",
-"Exclusive Personal Care Manufacturing Facility",
-"WHO-GMP Certified Facility",
-"USFDA Registered Facility",
-"Dedicated Diskette Manufacturing Line",
-"300+ Formulations"
-].map((item,idx)=>(
+      {[
+        "World-Class Manufacturing Facility",
+        "Dedicated Research And Development Wing",
+        "Cutting-Edge Manufacturing Technology",
+        "Exclusive Personal Care Manufacturing Facility",
+        "WHO-GMP Certified Facility",
+        "USFDA Registered Facility",
+        "Dedicated Diskette Manufacturing Line",
+        "300+ Formulations"
+      ].map((item, idx) => (
 
-<motion.div
-key={idx}
-initial={{opacity:0,y:20}}
-whileInView={{opacity:1,y:0}}
-viewport={{once:true}}
-transition={{delay:idx*0.05}}
-whileHover={{scale:1.05}}
-className="bg-white p-6 rounded-2xl shadow-md flex items-start gap-4"
->
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: idx * 0.05 }}
+          whileHover={{ scale: 1.05 }}
+          className="group relative bg-white p-6 rounded-2xl shadow-md flex items-start gap-4 border border-slate-100 overflow-hidden transition-all duration-500"
+        >
 
-<div className="w-6 h-6 rounded-full bg-accent mt-1"></div>
+          {/* ✅ EXACT SAME GRADIENT AS PURPOSE SECTION */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
 
-<p className="text-primary font-semibold text-sm">
-{item}
-</p>
+          {/* CONTENT */}
+          <div className="relative z-10 flex items-start gap-4 transition-colors duration-500">
 
-</motion.div>
+            {/* DOT */}
+            <div className="w-6 h-6 rounded-full bg-accent mt-1 
+              group-hover:bg-white transition duration-500"></div>
 
-))}
+            {/* TEXT */}
+            <p className="text-primary font-semibold text-sm 
+              group-hover:text-white transition duration-500">
+              {item}
+            </p>
 
-</div>
+          </div>
 
-</div>
+        </motion.div>
+
+      ))}
+
+    </div>
+
+  </div>
 
 </section>
-
-
 <section className="section-padding bg-slate-50 text-center">
   <div className="max-w-7xl mx-auto px-6">
 
@@ -276,134 +289,116 @@ className="bg-white p-6 rounded-2xl shadow-md flex items-start gap-4"
       title="Global Certifications"
     />
 
-    <div className="flex flex-wrap justify-center items-center gap-10 mt-12">
-      <img src="/who.png" alt="WHO GMP" className="h-30 object-contain" />
-      <img src="/usfda.png" alt="US FDA" className="h-30 object-contain" />
-      <img src="/halal.png" alt="Halal" className="h-30 object-contain" />
-      <img src="/kosher.png" alt="Kosher" className="h-30 object-contain" />
-      <img src="/haccp.png" alt="HACCP" className="h-30 object-contain" />
-      <img src="/iso9001.png" alt="ISO 9001" className="h-30 object-contain" />
-      <img src="/iso22000.png" alt="ISO 22000" className="h-30 object-contain" />
+    {/* ✅ SCROLL CONTAINER */}
+    <div className="mt-12 overflow-x-auto">
+
+      {/* ✅ CENTER ALIGN FIX */}
+      <div className="flex items-center justify-center gap-10 min-w-max mx-auto">
+
+        {[
+          { src: "/who.png", alt: "WHO GMP" },
+          { src: "/usfda.png", alt: "US FDA" },
+          { src: "/halal.png", alt: "Halal" },
+          { src: "/kosher.png", alt: "Kosher" },
+          { src: "/haccp.png", alt: "HACCP" },
+          { src: "/iso9001.png", alt: "ISO 9001" },
+          { src: "/iso22000.png", alt: "ISO 22000" },
+          { src: "/fssai.png", alt: "fssai" }
+        ].map((logo, idx) => (
+
+          <img
+            key={idx}
+            src={logo.src}
+            alt={logo.alt}
+            className="h-12 sm:h-14 md:h-16 lg:h-20 object-contain flex-shrink-0"
+          />
+
+        ))}
+
+      </div>
+
     </div>
 
   </div>
 </section>
 
 
-
-
-{/* MANUFACTURING INFRASTRUCTURE */}
-<section className="section-padding bg-white">
-
-<div className="max-w-7xl mx-auto px-6">
-
-<SectionHeading
-subtitle="Manufacturing Infrastructure"
-title="Precision Engineered Production"
-/>
-
-<div className="grid md:grid-cols-2 gap-10 mt-12">
-
-{[
-{
-img:"/manufacturing-machine1.jpg",
-title:"Automatic Machines for Tablets & Capsules"
-},
-{
-img:"/liquid-production1.jpg",
-title:"Fully Automated Syrup & Liquid Lines"
-},
-{
-img:"/rd-lab1.jpg",
-title:"Qualified Formulation & R&D Team"
-},
-{
-img:"/qa-lab1.jpg",
-title:"Dedicated QA & QC In-House Lab"
-}
-].map((item,idx)=>(
-
-<motion.div
-key={idx}
-initial={{opacity:0,y:30}}
-whileInView={{opacity:1,y:0}}
-viewport={{once:true}}
-transition={{delay:idx*0.1}}
-whileHover={{scale:1.03}}
-className="rounded-3xl overflow-hidden shadow-xl group"
->
-
-<div className="overflow-hidden">
-
-<img
-src={item.img}
-className="w-full h-[280px] object-cover group-hover:scale-110 transition duration-500"
-/>
-
-</div>
-
-<p className="text-center font-semibold text-primary py-4">
-{item.title}
-</p>
-
-</motion.div>
-
-))}
-
-</div>
-
-</div>
-
-</section>
-
-
-
 {/* MANUFACTURING APPROACH */}
-<section className="section-padding bg-slate-50">
+<section className="section-padding 
+bg-gradient-to-br from-[#1e2a78] via-[#5a3a6b] to-[#f97316] 
+text-white">
 
-<div className="max-w-7xl mx-auto px-6">
+  <div className="max-w-7xl mx-auto px-6">
 
-<SectionHeading
-subtitle="Quality First"
-title="How We Approach Manufacturing"
-/>
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-<p className="text-slate-600 text-lg leading-relaxed mb-10">
-Quality doesn’t get added at the end of the line. It starts with sourcing,
-continues through formulation and production, and finishes with testing,
-packaging and documentation. Every ingredient is verified and every batch
-is traceable to ensure regulatory compliance and consistent quality.
-</p>
+      {/* LEFT CONTENT */}
+      <div>
 
-<div className="grid md:grid-cols-2 gap-6">
+        <p className="text-white/80 text-sm font-semibold uppercase tracking-wider mb-4">
+          Quality First
+        </p>
 
-{[
-"Every batch is fully traceable",
-"Every ingredient is verified",
-"Every step is recorded",
-"Manufacturing meets global regulatory standards"
-].map((item,idx)=>(
+        <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
+          How We Approach <br /> Manufacturing
+        </h2>
 
-<div key={idx} className="flex gap-4">
+        <p className="text-white/90 text-lg leading-relaxed mb-10">
+          Quality doesn’t get added at the end of the line. It starts with sourcing,
+          continues through formulation and production, and finishes with testing,
+          packaging and documentation. Every ingredient is verified and every batch
+          is traceable to ensure regulatory compliance and consistent quality.
+        </p>
 
-<div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center text-white">
-<CheckCircle2 size={14}/>
-</div>
+        {/* POINTS */}
+        <div className="grid sm:grid-cols-2 gap-6">
 
-<p className="text-primary font-semibold">
-{item}
-</p>
+          {[
+            "Every batch is fully traceable",
+            "Every ingredient is verified",
+            "Every step is recorded",
+            "Manufacturing meets global regulatory standards"
+          ].map((item, idx) => (
 
-</div>
+            <div key={idx} className="flex gap-3 items-start">
 
-))}
+              <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-white mt-1">
+                <CheckCircle2 size={14}/>
+              </div>
 
-</div>
+              <p className="text-white/90 font-medium">
+                {item}
+              </p>
 
-</div>
+            </div>
+
+          ))}
+
+        </div>
+
+      </div>
+
+
+      {/* RIGHT IMAGE (NORMAL, NO OVERLAY) */}
+      <div className="relative">
+
+        <div className="rounded-3xl overflow-hidden shadow-2xl">
+
+          <img
+            src="/How-We-Approach.jpg"
+            alt="Manufacturing"
+            className="w-full h-[350px] md:h-[450px] object-cover"
+          />
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
-
 
 
 {/* PRODUCTION CAPACITY */}
@@ -430,10 +425,10 @@ is traceable to ensure regulatory compliance and consistent quality.
 <div className="grid md:grid-cols-4 gap-10 mt-14">
 
 {[
-{value:134, suffix:"M", label:"Tablets / Diskettes per month"},
-{value:30, suffix:"M", label:"Capsules per month"},
-{value:12, suffix:" Tons", label:"Powder"},
-{value:350, suffix:"K", label:"Liquid bottles per month"}
+{value:22, suffix:"M", label:"Tablets / Diskettes per month"},
+{value:13.2, suffix:"M", label:"Capsules per month"},
+{value:220, suffix:" Tonnes", label:"Powder Per Month"},
+{value:277, suffix:"K", label:"Liquid bottles per month"}
 ].map((item, idx)=>(
 
 <motion.div

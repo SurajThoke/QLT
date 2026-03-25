@@ -18,6 +18,7 @@ import GlobalPresence from './pages/GlobalPresence';
 import Insights from './pages/Insights';
 import Contact from './pages/Contact';
 import Leadership from "./pages/Leadership";
+import VisualInsight from "./pages/VisualInsight"
 
 export default function App() {
   return (
@@ -34,7 +35,9 @@ export default function App() {
             <Route path="/global" element={<GlobalPresence />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/leadership" element={<Leadership />} />
+            <Route path="/leadership" element={<Leadership />}/>
+            <Route path="/VisualInsight" element={<VisualInsight />}
+            />
           </Routes>
         </main>
         <Footer />
