@@ -124,7 +124,7 @@ const Home = () => {
 <div className="relative h-full">
 
   <video
-    src="/about-video.mp4"
+    src="https://res.cloudinary.com/dvlydjoke/video/upload/v1774485223/about-video_yj33wi.mp4"
     autoPlay
     loop
     muted
