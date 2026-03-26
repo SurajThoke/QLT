@@ -116,7 +116,7 @@ className="h-40 w-40 object-cover rounded-full mb-6"
 Madhu Swarna
 </h3>
 
-<p className="text-accent font-semibold mb-4">
+<p className="text-accent font-semibold">
 Founder
 </p>
 <p className="text-accent font-semibold mb-4">
