@@ -137,88 +137,97 @@ const Capabilities = () => {
       </h2>
     </div>
 
-    {/* CARDS */}
-    <div className="flex justify-center gap-8 flex-wrap">
+    {/* 🔥 ZIG-ZAG LAYOUT */}
+    <div className="relative flex justify-center">
 
-      {[
-        {
-          title: "Nutraceutical Manufacturing",
-          desc: "Production of supplements, vitamins, herbal extracts and functional foods.",
-          image: "/nutraceutical2.jpg"
-        },
-        {
-          title: "Pharmaceutical Collaborations",
-          desc: "Manufacturing partnerships for tablets, capsules, liquids and topicals.",
-          image: "/pharma2.jpg"
-        },
-        {
-          title: "Marketing & Distribution",
-          desc: "B2B, B2C and D2C distribution across emerging global markets.",
-          image: "/marketing1.jpg"
-        },
-        {
-          title: "Advisory Services",
-          desc: "GMP advisory, dossier sourcing and manufacturing problem solving.",
-          image: "/advisory.jpg"
-        }
-      ].map((item, idx) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 max-w-5xl w-full">
 
-        <motion.div
-          key={idx}
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="group w-full sm:w-[45%] lg:w-[23%] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col relative bg-white border border-slate-100"
-        >
+        {[
+          {
+            title: "Nutraceutical Manufacturing",
+            desc: "Production of supplements, vitamins, herbal extracts and functional foods.",
+            image: "/nutraceutical2.jpg"
+          },
+          {
+            title: "Pharmaceutical Collaborations",
+            desc: "Manufacturing partnerships for tablets, capsules, liquids and topicals.",
+            image: "/pharma2.jpg"
+          },
+          {
+            title: "Marketing & Distribution",
+            desc: "B2B, B2C and D2C distribution across emerging global markets.",
+            image: "/marketing1.jpg"
+          },
+          {
+            title: "Advisory Services",
+            desc: "GMP advisory, dossier sourcing and manufacturing problem solving.",
+            image: "/advisory.jpg"
+          }
+        ].map((item, idx) => (
 
-          {/* IMAGE */}
-          <div className="relative h-64 w-full overflow-hidden">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition duration-500"></div>
-          </div>
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
 
-          {/* CONTENT */}
-          <div className="relative flex flex-col justify-between flex-1 p-10 overflow-hidden">
+            className={`
+  group w-full rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl 
+  transition-all duration-500 flex flex-col relative bg-white border border-slate-100
 
-            {/* ✅ CORRECT CLEAN GRADIENT */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
+  h-[380px]   // ✅ same height for ALL cards
+  ${idx % 2 !== 0 ? "md:mt-32" : ""}
+`}
+          >
 
-            <div className="relative z-10 transition-colors duration-500">
+            {/* IMAGE */}
+            <div className="relative h-64 w-full overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition duration-500"></div>
+            </div>
 
-              <p className="text-xs tracking-widest uppercase text-slate-500 mb-2 
-                group-hover:text-white/70 transition duration-500">
-                Core Capability
-              </p>
+            {/* CONTENT */}
+            <div className="relative flex flex-col p-8 overflow-hidden">
 
-              <h3 className="text-xl font-semibold leading-snug text-primary 
-                group-hover:text-white transition duration-500">
-                {item.title}
-              </h3>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
 
-              <p className="text-sm text-slate-600 mt-4 leading-relaxed 
-                group-hover:text-white/80 transition duration-500">
-                {item.desc}
-              </p>
+              <div className="relative z-10 transition-colors duration-500">
+
+                <p className="text-xs tracking-widest uppercase text-slate-500 mb-2 
+                  group-hover:text-white/70 transition duration-500">
+                  Core Capability
+                </p>
+
+                <h3 className="text-xl font-semibold leading-snug text-primary 
+                  group-hover:text-white transition duration-500">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm text-slate-600 mt-4 leading-relaxed 
+                  group-hover:text-white/80 transition duration-500">
+                  {item.desc}
+                </p>
+
+              </div>
 
             </div>
 
-          </div>
+          </motion.div>
 
-        </motion.div>
+        ))}
 
-      ))}
+      </div>
 
     </div>
 
   </div>
 
 </section>
-
 
 {/* WHAT SETS US APART */}
 <section className="section-padding bg-slate-50">
