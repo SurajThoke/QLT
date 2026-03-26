@@ -148,12 +148,14 @@ const Home = () => {
         {/* Hover background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
-        <div className="relative z-10 transition-colors duration-500 group-hover:text-white">
+        <div className="relative z-10">
        
-          <SectionHeading
-            subtitle="About QL Therapeutics"
-            title="Building Accessible Healthcare for Emerging Markets"
-          />
+          <div className="group-hover:[&_h2]:text-white transition-colors duration-500">
+  <SectionHeading
+    subtitle="About QL Therapeutics"
+    title="Building Accessible Healthcare for Emerging Markets"
+  />
+</div>
 
           <p className="text-base md:text-lg text-slate-600 mb-4 group-hover:text-white/90 transition duration-500">
             QL Therapeutics is a purpose-driven pharmaceutical and nutraceutical
