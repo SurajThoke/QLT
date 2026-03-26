@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ChevronRight, Beaker, Users, ArrowRight, Leaf, Pill } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '../components/SectionHeading';
 
 const Home = () => {
+
   const { scrollYProgress, scrollY } = useScroll();
 
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const videoScale = useTransform(scrollY, [0, 600], [1.15, 1]);
   const videoY = useTransform(scrollY, [0, 600], ["0%", "20%"]);
+
+  // ✅ Mobile detection (CORRECT WAY)
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile(); // run on mount
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  
 
   const showPortfolioButton = false;
 
@@ -100,23 +117,24 @@ const Home = () => {
   <div className="max-w-7xl mx-auto px-6">
 
     {/* ✅ ATTACHED CONTAINER */}
-    <div className="grid lg:grid-cols-2 rounded-3xl overflow-hidden shadow-lg">
+    <div className="grid lg:grid-cols-2 rounded-3xl overflow-hidden shadow-lg items-stretch">
 
       {/* 🔴 LEFT VIDEO (NO STRETCH) */}
-      <div className="relative">
+      {/* 🔴 LEFT VIDEO (FIXED & CLEAN) */}
+<div className="relative h-full">
 
-        <video
-          src="https://res.cloudinary.com/dvlydjoke/video/upload/v1774485223/about-video_yj33wi.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover max-h-[420px]"
-        />
+  <video
+    src="/about-video.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  />
 
-        <div className="absolute inset-0 bg-black/20"></div>
+  <div className="absolute inset-0 bg-black/20"></div>
 
-      </div>
+</div>
 
       {/* 🟢 RIGHT CONTENT (CONTROLS HEIGHT) */}
       <motion.div
@@ -130,8 +148,8 @@ const Home = () => {
         {/* Hover background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
-        <div className="relative z-10 transition-colors duration-500">
-
+        <div className="relative z-10 transition-colors duration-500 group-hover:text-white">
+       
           <SectionHeading
             subtitle="About QL Therapeutics"
             title="Building Accessible Healthcare for Emerging Markets"
@@ -179,20 +197,35 @@ const Home = () => {
       {/* Card 1: Vineet Shiva */}
       <div className="group bg-white rounded-[2rem] shadow-md overflow-hidden border border-slate-100 flex flex-col">
         
-        <div className="aspect-[4/5] overflow-hidden bg-slate-200 relative">
-          <img 
-            src="/vineet.jpg" 
-            alt="Vineet Shiva"
-            className="w-full h-full object-cover 
-             transition-all duration-500 
-             grayscale 
-             group-hover:grayscale-0 
-             group-hover:scale-105
-             group-active:grayscale-0
-             group-active:scale-105"
-/>
-        </div>
-        
+    <motion.div 
+  className="aspect-[4/5] overflow-hidden bg-slate-200 relative"
+>
+  {isMobile ? (
+    // 📱 MOBILE → Scroll animation
+    <motion.img
+      src="/vineet.jpg"
+      alt="Vineet Shiva"
+      className="w-full h-full object-cover transition-all duration-500"
+      initial={{ filter: "grayscale(100%)", scale: 1 }}
+      whileInView={{ filter: "grayscale(0%)", scale: 1.05 }}
+      viewport={{ once: false, amount: 0.4 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    />
+  ) : (
+    // 💻 DESKTOP → Pure Tailwind hover
+    <img
+      src="/vineet.jpg"
+      alt="Vineet Shiva"
+      className="w-full h-full object-cover transition-all duration-500
+        grayscale 
+        group-hover:grayscale-0 
+        group-hover:scale-105
+        group-active:grayscale-0
+        group-active:scale-105"
+    />
+  )}
+</motion.div>
+
         <div className="p-8 pt-6">
           <h3 className="text-2xl font-bold text-slate-900 mb-1">
             Mr. Vineet Shiva
@@ -219,7 +252,7 @@ const Home = () => {
               </span>
             </Link>
 
-            {/* ✅ LinkedIn Link */}
+            {/* LinkedIn */}
             <a 
               href="https://www.linkedin.com/in/vineet-shiva-7209076/" 
               target="_blank" 
@@ -237,20 +270,36 @@ const Home = () => {
       {/* Card 2: Madhu Swarna */}
       <div className="group bg-white rounded-[2rem] shadow-md overflow-hidden border border-slate-100 flex flex-col">
         
-        <div className="aspect-[4/5] overflow-hidden bg-slate-200 relative">
-          <img 
-            src="/madhu.jpg" 
-            alt="Madhu Swarna"
-            className="w-full h-full object-cover 
-             transition-all duration-500 
-             grayscale 
-             group-hover:grayscale-0 
-             group-hover:scale-105
-             group-active:grayscale-0
-             group-active:scale-105"
-/>
-        </div>
-        
+        {/* ✅ UPDATED: motion div added */}
+<motion.div 
+  className="aspect-[4/5] overflow-hidden bg-slate-200 relative"
+>
+  {isMobile ? (
+    // 📱 MOBILE → Scroll animation
+    <motion.img
+      src="/madhu.jpg"
+      alt="Madhu Swarna"
+      className="w-full h-full object-cover transition-all duration-500"
+      initial={{ filter: "grayscale(100%)", scale: 1 }}
+      whileInView={{ filter: "grayscale(0%)", scale: 1.05 }}
+      viewport={{ once: false, amount: 0.4 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    />
+  ) : (
+    // 💻 DESKTOP → Pure hover
+    <img
+      src="/madhu.jpg"
+      alt="Madhu Swarna"
+      className="w-full h-full object-cover transition-all duration-500
+        grayscale 
+        group-hover:grayscale-0 
+        group-hover:scale-105
+        group-active:grayscale-0
+        group-active:scale-105"
+    />
+  )}
+</motion.div>
+
         <div className="p-8 pt-6">
           <h3 className="text-2xl font-bold text-slate-900 mb-1">
             Mr. Madhu Swarna
@@ -275,7 +324,7 @@ const Home = () => {
               </span>
             </Link>
 
-            {/* ✅ LinkedIn Link */}
+            {/* LinkedIn */}
             <a 
               href="https://www.linkedin.com/in/madhu-babu-swarna-906ab425/" 
               target="_blank" 
