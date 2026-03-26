@@ -29,7 +29,7 @@ const Home = () => {
       style={{ scale: videoScale, y: videoY }}
       className="w-full h-full object-cover"
     >
-      <source src="/hero-video.mp4" type="video/mp4" />
+      <source src="https://res.cloudinary.com/dvlydjoke/video/upload/v1774483980/hero-video_d2rlo5.mp4" type="video/mp4" />
     </motion.video>
 
     {/* Gradient Overlay */}
@@ -306,7 +306,7 @@ const Home = () => {
       playsInline
       className="w-full h-full object-cover opacity-60"
     >
-      <source src="/capabilities-video1.mp4" type="video/mp4" />
+      <source src="https://res.cloudinary.com/dvlydjoke/video/upload/v1774484371/capabilities-video1_hiamig.mp4" type="video/mp4" />
     </video>
 
     {/* LIGHT OVERLAY (so text is readable but video visible) */}
