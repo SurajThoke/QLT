@@ -312,7 +312,8 @@ const Capabilities = () => {
           { src: "/haccp.png", alt: "HACCP" },
           { src: "/iso9001.png", alt: "ISO 9001" },
           { src: "/iso22000.png", alt: "ISO 22000" },
-          { src: "/fssai.png", alt: "fssai" }
+          { src: "/fssai.png", alt: "fssai" },
+          { src: "/ayush.png", alt: "ayush" }
         ].map((logo, idx) => (
 
           <img
@@ -332,74 +333,66 @@ const Capabilities = () => {
 </section>
 
 
-{/* MANUFACTURING APPROACH */}
-<section className="section-padding 
-bg-gradient-to-br from-[#1e2a78] via-[#5a3a6b] to-[#f97316] 
-text-white">
+{/* MANUFACTURING APPROACH - PREMIUM */}
+<section className="relative min-h-[70vh] lg:h-[90vh] overflow-hidden">
 
-  <div className="max-w-7xl mx-auto px-6">
+  {/* 🎥 BACKGROUND VIDEO */}
+  <video
+    src="/manufacturing_approach.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  />
 
-    <div className="grid lg:grid-cols-2 gap-12 items-center">
+  {/* OVERLAY */}
+  <div className="absolute inset-0 bg-black/30"></div>
 
-      {/* LEFT CONTENT */}
-      <div>
+  {/* CONTENT WRAPPER */}
+  <div className="relative z-10 w-full h-full flex items-center justify-start px-4 sm:px-6 lg:px-10">
 
-        <p className="text-white/80 text-sm font-semibold uppercase tracking-wider mb-4">
-          Quality First
-        </p>
+    {/* 🧾 LEFT SIDE CARD */}
+    <div className="bg-white/95 backdrop-blur-md rounded-2xl p-8 md:p-12 max-w-2xl shadow-xl text-left">
 
-        <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
-          How We Approach <br /> Manufacturing
-        </h2>
+      <p className="text-primary/80 text-sm font-semibold uppercase tracking-wider mb-4">
+        Quality First
+      </p>
 
-        <p className="text-white/90 text-lg leading-relaxed mb-10">
-          Quality doesn’t get added at the end of the line. It starts with sourcing,
-          continues through formulation and production, and finishes with testing,
-          packaging and documentation. Every ingredient is verified and every batch
-          is traceable to ensure regulatory compliance and consistent quality.
-        </p>
+      <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6 text-primary">
+        How We Approach <br /> Manufacturing
+      </h2>
 
-        {/* POINTS */}
-        <div className="grid sm:grid-cols-2 gap-6">
+      <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-10">
+        Quality doesn’t get added at the end of the line. It starts with sourcing,
+        continues through formulation and production, and finishes with testing,
+        packaging and documentation. Every ingredient is verified and every batch
+        is traceable to ensure regulatory compliance and consistent quality.
+      </p>
 
-          {[
-            "Every batch is fully traceable",
-            "Every ingredient is verified",
-            "Every step is recorded",
-            "Manufacturing meets global regulatory standards"
-          ].map((item, idx) => (
+      {/* POINTS */}
+      <div className="grid sm:grid-cols-2 gap-6">
 
-            <div key={idx} className="flex gap-3 items-start">
+        {[
+          "Every batch is fully traceable",
+          "Every ingredient is verified",
+          "Every step is recorded",
+          "Manufacturing meets global regulatory standards"
+        ].map((item, idx) => (
 
-              <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-white mt-1">
-                <CheckCircle2 size={14}/>
-              </div>
+          <div key={idx} className="flex gap-3 items-start">
 
-              <p className="text-white/90 font-medium">
-                {item}
-              </p>
-
+            <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1">
+              <CheckCircle2 size={14}/>
             </div>
 
-          ))}
+            <p className="text-slate-700 font-medium">
+              {item}
+            </p>
 
-        </div>
+          </div>
 
-      </div>
-
-
-      {/* RIGHT IMAGE (NORMAL, NO OVERLAY) */}
-      <div className="relative">
-
-        <div className="rounded-3xl overflow-hidden shadow-2xl">
-
-          <img
-            src="/How-We-Approach.jpg"
-            alt="Manufacturing"
-            className="w-full h-[350px] md:h-[450px] object-cover"
-          />
-
-        </div>
+        ))}
 
       </div>
 
@@ -408,6 +401,7 @@ text-white">
   </div>
 
 </section>
+
 
 
 {/* PRODUCTION CAPACITY */}
