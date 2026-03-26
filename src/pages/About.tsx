@@ -34,7 +34,7 @@ const About = () => {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/about-hero1.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dvlydjoke/video/upload/v1774484137/about-hero1_vxkark.mp4" type="video/mp4" />
           </video>
 
           <div className="absolute inset-0 bg-black/65"></div>
