@@ -63,7 +63,7 @@ const Navbar = () => {
             </Link>
           ))}
           <Link to="/contact" className="btn-primary text-sm px-5 py-2">
-            Contact US
+            Contact Us
           </Link>
         </div>
 
