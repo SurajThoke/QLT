@@ -231,7 +231,7 @@ const About = () => {
 
   {/* 🎥 BACKGROUND VIDEO */}
   <video
-    src="/about-Who-we-are.mp4"
+    src="https://res.cloudinary.com/dvlydjoke/video/upload/v1774484286/about-Who-we-are_up4r4c.mov"
     autoPlay
     loop
     muted
