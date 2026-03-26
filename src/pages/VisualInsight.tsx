@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 const categories = [
   { name: "Chemical & Micro Lab", key: "c" },
   { name: "Liquid Manufacturing Lines", key: "l" },
+   { name: "Manufacturing Plant", key: "m" },
   { name: "Research & Development", key: "r" },
   { name: "Tablets & Capsules Manufacturing", key: "t" }
 ];
@@ -12,6 +13,7 @@ const categories = [
 const allImages = [
   "c1.jpg","c2.jpg","c3.jpg","c4.jpg","c5.jpg",
   "l1.jpg","l2.jpg","l3.jpg","l4.jpg","l5.jpg","l6.jpg","l7.jpg","l8.jpg",
+  "m1.jpg',"m2.jpg",
   "r1.jpg","r2.jpg","r3.jpg","r4.jpg","r5.jpg",
   "t1.jpg","t2.jpg","t3.jpg","t4.jpg","t5.jpg","t6.jpg"
 ];
