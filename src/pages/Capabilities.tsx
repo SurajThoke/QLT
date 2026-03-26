@@ -108,9 +108,7 @@ const Capabilities = () => {
     </h1>
 
     <p className="text-white/80 text-lg leading-relaxed">
-      QL Therapeutics unlocks value through integrated pharmaceutical
-      and nutraceutical manufacturing, global partnerships,
-      and regulatory expertise.
+    QL Therapeutics Unlocks Value Through Integrated Pharmaceutical and Nutraceutical Manufacturing, Global Partnerships, and Regulatory Expertise
     </p>
 
   </div>
