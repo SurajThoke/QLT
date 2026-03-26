@@ -120,39 +120,22 @@ const About = () => {
         className="grid gap-6"
       >
 
-        {/* IMAGE 1 (PRODUCTS) */}
-        <div className="group relative h-[200px] rounded-3xl overflow-hidden text-white flex items-end p-6 shadow-lg">
+        {/* IMAGE (PRODUCTS ONLY) */}
+<div className="group relative h-[260px] md:h-[320px] rounded-3xl overflow-hidden text-white flex items-end p-8 shadow-lg">
 
-          <img
-            src="/products.jpg"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
+  <img
+    src="/products.jpg"
+    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+  />
 
-          <div className="absolute inset-0 bg-black/50"></div>
+  <div className="absolute inset-0 bg-black/50"></div>
 
-          <div className="relative">
-            <h3 className="text-4xl font-bold">300+</h3>
-            <p className="text-sm">Products</p>
-          </div>
+  <div className="relative">
+    <h3 className="text-5xl md:text-6xl font-bold leading-none">300+</h3>
+    <p className="text-base md:text-lg mt-2 opacity-90">Products</p>
+  </div>
 
-        </div>
-
-        {/* IMAGE 2 (ADD YOUR SECOND IMAGE HERE) */}
-        <div className="group relative h-[200px] rounded-3xl overflow-hidden text-white flex items-end p-6 shadow-lg">
-
-          <img
-            src="/research.jpg"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-
-          <div className="absolute inset-0 bg-black/50"></div>
-
-          <div className="relative">
-            <h3 className="text-4xl font-bold">5</h3>
-            <p className="text-sm">R&D Hubs</p>
-          </div>
-
-        </div>
+</div>
 
       </motion.div>
 
