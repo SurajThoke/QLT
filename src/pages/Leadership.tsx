@@ -62,10 +62,12 @@ className="h-40 w-40 object-cover rounded-full mb-6"
 Vineet Shiva
 </h3>
 
-<p className="text-accent font-semibold mb-4">
-Founder & Strategic Leader
+<p className="text-accent font-semibold">
+Founder
 </p>
-
+<p className="text-accent font-semibold mb-4">
+Director, Commercial Expert
+</p>
 <p className="text-slate-600 text-sm leading-relaxed mb-6">
 30 Years of Global Pharmaceutical Experience Across India, Europe, and Africa.
 Experienced in Leading and Scaling Businesses
@@ -115,11 +117,13 @@ Madhu Swarna
 </h3>
 
 <p className="text-accent font-semibold mb-4">
-Co-Founder and Technical Expert
+Founder
 </p>
-
+<p className="text-accent font-semibold mb-4">
+Director, Technical Expert
+</p>
 <p className="text-slate-600 text-sm leading-relaxed mb-6">
-Over 23 Years of Healthcare Industry Experience
+Over 23 Years of Global Healthcare Industry Experience
 </p>
 
 <ul className="space-y-2 text-sm text-slate-600 text-left">
