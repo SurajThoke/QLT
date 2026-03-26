@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { ChevronRight, Beaker, Users, ArrowRight, Leaf } from 'lucide-react';
+import { ChevronRight, Beaker, Users, ArrowRight, Leaf, Pill } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '../components/SectionHeading';
 
@@ -326,13 +326,13 @@ const Home = () => {
         {
           title:"Nutraceutical ",
           desc:"",
-          icon:<Beaker/>,
+          icon:<Leaf/>,
           image:"/nutraceutical1.jpg"
         },
         {
           title:"Pharmaceutical ",
           desc:"",
-          icon:<Users/>,
+          icon:<Pill/>,
           image:"/pharma1.jpg"
         }
       ].map((item,idx)=>(
