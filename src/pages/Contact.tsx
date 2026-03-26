@@ -3,8 +3,14 @@ import { motion } from 'motion/react';
 import { MapPin, Mail } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import emailjs from 'emailjs-com';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import { useState } from 'react';
 
 const Contact = () => {
+
+  
+const [phone, setPhone] = useState("");
   return (
     <div className="pt-20">
       <section className="section-padding bg-white">
@@ -75,33 +81,40 @@ const Contact = () => {
 
                 </div>
 
-                {/* Phone */}
-<div className="space-y-2">
-  <label className="text-sm font-bold text-primary uppercase tracking-wider">
-    Phone
-  </label>
+   <PhoneInput
+  country={"in"}
+  value={phone}
 
-  <div className="flex gap-2">
+  onChange={(value) => {
+    setPhone(value); // ✅ keep raw value
+  }}
 
-    {/* Country Code */}
-    <input
-      type="text"
-      value="+91"
-      readOnly
-      className="w-20 px-4 py-4 rounded-xl bg-slate-100 border border-slate-200 text-center font-semibold"
-    />
+  enableSearch
 
-    {/* Phone Number */}
-    <input
-      name="user_phone"
-      required
-      type="tel"
-      className="flex-1 px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent outline-none"
-      placeholder="Enter phone number"
-    />
+  inputProps={{
+    name: "user_phone", // ✅ VERY IMPORTANT
+    required: true,
+    autoFocus: false
+  }}
 
-  </div>
-</div>
+  containerClass="w-full"
+
+  inputStyle={{
+    width: "100%",
+    height: "56px",
+    borderRadius: "12px",
+    border: "1px solid #e2e8f0",
+    backgroundColor: "#f8fafc",
+    paddingLeft: "60px",
+    fontSize: "16px",
+  }}
+
+  buttonStyle={{
+    border: "1px solid #e2e8f0",
+    borderRadius: "12px 0 0 12px",
+    backgroundColor: "#f1f5f9",
+  }}
+/>
 
                 {/* Message */}
                 <div className="space-y-2">
@@ -196,7 +209,7 @@ Gota, Ahmedabad 382470, India
           Manufacturing Plant
         </h4>
         <p className="text-slate-500 text-sm leading-relaxed">
-          Manufacturing Plant- Phase III, Bio Tech Park, Plot No: 49, SEZ<br/>
+          Manufacturing Plant- Phase III, Bio Tech Park, Plot No: 49, SEZ
 Karkapatla, Telangana 502279, India
         </p>
       </div>

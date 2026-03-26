@@ -54,10 +54,10 @@ const Counter = ({ value, suffix }) => {
     return () => clearInterval(timer);
   }, [visible, value]);
 
-  return (
+ return (
   <span ref={ref} className="flex flex-col items-center leading-tight">
     <span>{count}</span>
-    <span>{suffix}</span>
+    <span className="text-[0.45em]">{suffix}</span> {/* 👈 slightly smaller */}
   </span>
 );
 
@@ -440,7 +440,7 @@ const Capabilities = () => {
 {value:22, suffix:"Millions", label:"Tablets / Diskettes per month"},
 {value:13.2, suffix:"Millions", label:"Capsules per month"},
 {value:220, suffix:" Tonnes", label:"Powder Per Month"},
-{value:277, suffix:"K", label:"Liquid bottles per month"}
+{value:277, suffix:"Thousand", label:"Liquid bottles per month"}
 ].map((item, idx)=>(
 
 <motion.div

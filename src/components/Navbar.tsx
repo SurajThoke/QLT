@@ -31,7 +31,6 @@ const Navbar = () => {
   FEATURES.global && { name: 'Global Presence', href: '/global' },
   FEATURES.insights && { name: 'Insights', href: '/insights' },
 
-  { name: 'Contact Us', href: '/contact' },
 ].filter(Boolean); // 🔥 IMPORTANT
   const isActive = (path: string) => location.pathname === path;
 
@@ -48,7 +47,7 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop Menu */}
+  {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <Link 
@@ -63,7 +62,9 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          
+          <Link to="/contact" className="btn-primary text-sm px-5 py-2">
+            Contact US
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
